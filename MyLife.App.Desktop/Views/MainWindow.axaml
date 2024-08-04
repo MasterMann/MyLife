@@ -1,0 +1,65 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        
+		xmlns:views-common="clr-namespace:MyLife.App.Common.Views;assembly=MyLife.App.Common"
+		xmlns:views-mobile="clr-namespace:MyLife.App.Android.UI.Mobile.Views;assembly=MyLife.App.Android.UI.Mobile"
+		xmlns:views-desktop="clr-namespace:MyLife.App.Desktop.Views"
+		
+		xmlns:vm="clr-namespace:MyLife.App.Desktop.ViewModels"
+		xmlns:vm-views-mobile="clr-namespace:MyLife.App.Android.UI.Mobile.ViewModels;assembly=MyLife.App.Android.UI.Mobile"
+		
+		xmlns:vm-c-bottom-nav="clr-namespace:MyLife.App.Android.UI.Mobile.ViewModels.Components.BottomNavigation;assembly=MyLife.App.Android.UI.Mobile"
+		
+		mc:Ignorable="d"
+		d:DesignWidth="400" d:DesignHeight="600"
+        
+		x:Class="MyLife.App.Desktop.Views.MainWindow"
+        Icon="avares://MyLife.App.Common/Assets/avalonia-logo.ico"
+        Title="My Life"
+		
+		Width="400" Height="600">
+
+	<Design.DataContext>
+		<vm:MainWindowViewModel>
+			<vm:MainWindowViewModel.Content>
+				<vm-views-mobile:MobileMainViewModel>
+					<vm-views-mobile:MobileMainViewModel.BottomNav>
+						<vm-c-bottom-nav:BottomNavigationViewModel>
+							<vm-c-bottom-nav:BottomNavigationViewModel.Items>
+								<vm-c-bottom-nav:BottomNavigationItemViewModel
+									IconID="FormatListChecks"
+									ID="todo"
+									Title="TODO"
+								/>
+								<vm-c-bottom-nav:BottomNavigationItemViewModel
+									IconID="Note"
+									ID="notes"
+									Title="Notes"
+								/>
+								<vm-c-bottom-nav:BottomNavigationItemViewModel
+									IconID="Home"
+									ID="home"
+									Title="Home"
+								/>
+								<vm-c-bottom-nav:BottomNavigationItemViewModel
+									IconID="ViewGridPlus"
+									ID="services"
+									Title="Services"
+								/>
+								<vm-c-bottom-nav:BottomNavigationItemViewModel
+									IconID="Abacus"
+									ID="stats"
+									Title="Statistics"
+								/>
+							</vm-c-bottom-nav:BottomNavigationViewModel.Items>
+						</vm-c-bottom-nav:BottomNavigationViewModel>
+					</vm-views-mobile:MobileMainViewModel.BottomNav>
+				</vm-views-mobile:MobileMainViewModel>
+			</vm:MainWindowViewModel.Content>
+		</vm:MainWindowViewModel>
+	</Design.DataContext>
+	
+	<views-mobile:MobileMainView DataContext="{ReflectionBinding Content}"/>
+</Window>

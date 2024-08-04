@@ -1,0 +1,49 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+	<PropertyGroup Label="Avalonia">
+		<AvaloniaUseCompiledBindingsByDefault>True</AvaloniaUseCompiledBindingsByDefault>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\MyLife.App.Common\MyLife.App.Common.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Views\Components\BottomNavigation\BottomNavigationItemView.axaml.cs">
+	    <DependentUpon>BottomNavigationItemView.axaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Components\BottomNavigation\BottomNavigationView.axaml.cs">
+	    <DependentUpon>%(Filename)</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Components\Containers\Tabs\TabContainerView.axaml.cs">
+	    <DependentUpon>TabContainerView.axaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Components\TabHeader\TabHeaderView.axaml.cs">
+	    <DependentUpon>TabHeaderView.axaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Content\Todo\TodoItemView.axaml.cs">
+	    <DependentUpon>TodoItemView.axaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\MainView.axaml.cs">
+	    <DependentUpon>%(Filename)</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Content\Todo\TodoTabContentView.axaml.cs">
+	    <DependentUpon>TodoTabContentView.axaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Models\Content\Todo\" />
+	</ItemGroup>
+	
+</Project>

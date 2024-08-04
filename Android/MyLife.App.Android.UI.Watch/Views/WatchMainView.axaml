@@ -1,0 +1,84 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             
+			 xmlns:vm="clr-namespace:MyLife.App.Android.UI.Watch.ViewModels"
+			 
+			 xmlns:c-buttons="clr-namespace:MyLife.App.Common.Views.Components.Buttons;assembly=MyLife.App.Common"
+			 xmlns:vm-c-buttons="clr-namespace:MyLife.App.Common.ViewModels.Components.Buttons;assembly=MyLife.App.Common"
+			 
+			 mc:Ignorable="d"
+			 d:DesignWidth="200" d:DesignHeight="200"
+             
+			 x:Class="MyLife.App.Android.UI.Watch.Views.WatchMainView">
+    
+	<Design.DataContext>
+		<vm:WatchMainViewModel>
+			<vm:WatchMainViewModel.Buttons>
+				<vm-c-buttons:PillButtonViewModel
+					IconId="FormatListChecks"
+					Id="todo"
+					Label="TODO" />
+				<vm-c-buttons:PillButtonViewModel
+					IconId="Note"
+					Id="notes"
+					Label="Notes" />
+				<vm-c-buttons:PillButtonViewModel
+					IconId="ViewGridPlus"
+					Id="services"
+					Label="Services" />
+				<vm-c-buttons:PillButtonViewModel
+					IconId="Cog"
+					Id="settings"
+					Label="Settings" />
+			</vm:WatchMainViewModel.Buttons>
+		</vm:WatchMainViewModel>
+    </Design.DataContext>
+
+	<ScrollViewer
+			HorizontalScrollBarVisibility="Hidden"
+			VerticalScrollBarVisibility="Hidden"
+			AllowAutoHide="True"
+		>
+		<Border
+			Margin="5, 20, 5, 50">
+			<StackPanel>
+				<TextBlock 
+					Text="My Life" 
+					HorizontalAlignment="Center"
+					FontFamily="Roboto"
+					FontWeight="Bold"
+					FontSize="20"
+					Padding="0, 0, 0, 5"/>
+				<TextBlock
+					Text="Choose a section to begin"
+					HorizontalAlignment="Center"
+					FontFamily="Roboto"
+					FontWeight="Regular"
+					FontSize="12"
+					Padding="0, 0, 0, 10"/>
+				<ItemsControl
+					ItemsSource="{Binding Buttons, DataType={x:Type vm:WatchMainViewModel}}"
+				>
+					<ItemsControl.ItemTemplate>
+						<DataTemplate DataType="{x:Type vm-c-buttons:PillButtonViewModel}">
+							<c-buttons:PillButton Padding="5" DataContext="{ReflectionBinding}"/>
+						</DataTemplate>
+					</ItemsControl.ItemTemplate>
+					<ItemsControl.ItemsPanel>
+						<ItemsPanelTemplate>
+							<StackPanel
+								Orientation="Vertical"
+								VerticalAlignment="Top" />
+						</ItemsPanelTemplate>
+					</ItemsControl.ItemsPanel>
+				</ItemsControl>
+			</StackPanel>
+		</Border>
+		
+		
+		
+	</ScrollViewer>
+	
+</UserControl>

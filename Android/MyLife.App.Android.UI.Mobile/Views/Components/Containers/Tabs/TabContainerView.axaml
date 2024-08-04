@@ -1,0 +1,74 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             
+			 xmlns:c-header="clr-namespace:MyLife.App.Android.UI.Mobile.Views.Components.TabHeader"
+			 xmlns:vm-header="clr-namespace:MyLife.App.Android.UI.Mobile.ViewModels.Components.TabHeader"
+			 
+			 xmlns:vm="clr-namespace:MyLife.App.Android.UI.Mobile.ViewModels.Components.Containers.Tabs"
+			 xmlns:vm-content="clr-namespace:MyLife.App.Android.UI.Mobile.ViewModels.Content"
+			 
+			 xmlns:vm-content-todo="clr-namespace:MyLife.App.Android.UI.Mobile.ViewModels.Content.Todo"
+			 
+			 mc:Ignorable="d"
+			 d:DesignWidth="400" d:DesignHeight="500"
+
+			 x:Class="MyLife.App.Android.UI.Mobile.Views.Components.Containers.Tabs.TabContainerView">
+
+	<Design.DataContext>
+		<vm:TabContainerViewModel
+			TabId="test"
+			TabName="Test"
+		>
+			<vm:TabContainerViewModel.HeaderConfig>
+				<vm-header:TabHeaderViewModel
+					TitleLabel="TODO"
+				>
+					<vm-header:TabHeaderViewModel.Actions>
+						<vm-header:TabHeaderActionViewModel
+							ActionId="test"
+							IconId="CloudArrowUp"
+							IsEnabled="True"
+							DisplayName="Sync with Server"
+							Priority="DEFAULT"
+				/>
+					</vm-header:TabHeaderViewModel.Actions>
+				</vm-header:TabHeaderViewModel>
+			</vm:TabContainerViewModel.HeaderConfig>
+			<vm:TabContainerViewModel.Content>
+				<vm-content-todo:TodoTabContentViewModel>
+					<vm-content-todo:TodoTabContentViewModel.Items>
+						<vm-content-todo:TodoItemViewModel
+							Text="Test item 1"
+						/>
+						<vm-content-todo:TodoItemViewModel
+							Text="Test item 2"
+						/>
+						<vm-content-todo:TodoItemViewModel
+							Text="Test item 3"
+						/>
+					</vm-content-todo:TodoTabContentViewModel.Items>
+				</vm-content-todo:TodoTabContentViewModel>
+			</vm:TabContainerViewModel.Content>
+		</vm:TabContainerViewModel>
+	</Design.DataContext>
+	
+	<Grid ColumnDefinitions="*" RowDefinitions="Auto, *">
+		<c-header:TabHeaderView 
+			Grid.Row="0" 
+			Padding="0, 0, 0, 5"
+			DataContext="{ReflectionBinding HeaderConfig}"
+		/>
+		<ContentControl 
+			Grid.Row="1"
+			Content="{Binding Content, DataType={x:Type vm:TabContainerViewModel}}"
+		>
+			<ContentControl.ContentTemplate>
+				<vm-content:TabContentDataTemplate />
+			</ContentControl.ContentTemplate>
+		</ContentControl>
+
+	</Grid>
+	
+</UserControl>

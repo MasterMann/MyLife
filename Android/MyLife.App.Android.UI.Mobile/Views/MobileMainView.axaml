@@ -1,0 +1,82 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             
+			 xmlns:c-bottom-nav="clr-namespace:MyLife.App.Android.UI.Mobile.Views.Components.BottomNavigation"
+			 xmlns:vm-c-bottom-nav="clr-namespace:MyLife.App.Android.UI.Mobile.ViewModels.Components.BottomNavigation"
+
+			 xmlns:vm-tabs="clr-namespace:MyLife.App.Android.UI.Mobile.ViewModels.Components.Containers.Tabs"
+			 
+			 xmlns:vm-content-todo="clr-namespace:MyLife.App.Android.UI.Mobile.ViewModels.Content.Todo"
+			 
+			 xmlns:vm="clr-namespace:MyLife.App.Android.UI.Mobile.ViewModels"
+ 
+			 mc:Ignorable="d"
+			 d:DesignWidth="400" d:DesignHeight="600"
+             
+			 x:Class="MyLife.App.Android.UI.Mobile.Views.MobileMainView">
+    
+	<Design.DataContext>
+		<vm:MobileMainViewModel>
+			<vm:MobileMainViewModel.BottomNav>
+				<vm-c-bottom-nav:BottomNavigationViewModel>
+					<vm-c-bottom-nav:BottomNavigationViewModel.Tabs>
+						<vm-tabs:TabContainerViewModel
+							TabId="test"
+							TabName="Test tab"
+						>
+							<vm-tabs:TabContainerViewModel.Content>
+								<vm-content-todo:TodoTabContentViewModel>
+									<vm-content-todo:TodoTabContentViewModel.Items>
+										<vm-content-todo:TodoItemViewModel
+											Text="Test item 1"
+										/>
+										<vm-content-todo:TodoItemViewModel
+											Text="Test item 2"
+										/>
+										<vm-content-todo:TodoItemViewModel
+											Text="Test item 3"
+										/>
+									</vm-content-todo:TodoTabContentViewModel.Items>
+								</vm-content-todo:TodoTabContentViewModel>
+							</vm-tabs:TabContainerViewModel.Content>
+						</vm-tabs:TabContainerViewModel>
+					</vm-c-bottom-nav:BottomNavigationViewModel.Tabs>
+					<vm-c-bottom-nav:BottomNavigationViewModel.NavItems>
+						<vm-c-bottom-nav:BottomNavigationItemViewModel
+							TabIconId="FormatListChecks"
+							TabId="todo"
+							TabName="TODO"
+						/>
+						<vm-c-bottom-nav:BottomNavigationItemViewModel
+							TabIconId="Note"
+							TabId="notes"
+							TabName="Notes"
+						/>
+						<vm-c-bottom-nav:BottomNavigationItemViewModel
+							TabIconId="Home"
+							TabId="home"
+							TabName="Home"
+						/>
+						<vm-c-bottom-nav:BottomNavigationItemViewModel
+							TabIconId="ViewGridPlus"
+							TabId="services"
+							TabName="Services"
+						/>
+						<vm-c-bottom-nav:BottomNavigationItemViewModel
+							TabIconId="Abacus"
+							TabId="spending"
+							TabName="Spending"
+						/>
+					</vm-c-bottom-nav:BottomNavigationViewModel.NavItems>
+				</vm-c-bottom-nav:BottomNavigationViewModel>
+			</vm:MobileMainViewModel.BottomNav>
+		</vm:MobileMainViewModel>
+    </Design.DataContext>
+
+	<c-bottom-nav:BottomNavigationView
+		DataContext="{ReflectionBinding BottomNav}"
+	/>
+
+</UserControl>
