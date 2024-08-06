@@ -4,13 +4,17 @@ using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
 
+using MyLife.App.Plugins.Core.Services;
+
 
 namespace MyLife.App.Shared;
 
 
 public partial class MyLifeApp : Application
 {
-    public override void Initialize() => AvaloniaXamlLoader.Load(this);
+	public static IFeaturePluginManager PluginManager { get; protected set; }
+
+	public override void Initialize() => AvaloniaXamlLoader.Load(this);
 
 	public override void OnFrameworkInitializationCompleted()
     {
