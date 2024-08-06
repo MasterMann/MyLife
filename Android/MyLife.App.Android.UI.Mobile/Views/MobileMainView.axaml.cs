@@ -11,7 +11,5 @@ public partial class MobileMainView : UserControl
     public MobileMainView()
     {
         this.InitializeComponent();
-
-        var test = (this.DataContext as MobileMainViewModel)?.BottomNav;
     }
 }

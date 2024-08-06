@@ -1,12 +1,14 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using System;
+
+using CommunityToolkit.Mvvm.ComponentModel;
 
 using MyLife.App.Shared.ViewModels;
 
 
-namespace MyLife.App.Android.UI.Mobile.ViewModels.Components.BottomNavigation;
+namespace MyLife.App.Shared.ViewModels.Components.TabNavigation;
 
 
-public partial class BottomNavigationItemViewModel : ViewModelBase
+public partial class TabNavigationItemViewModel : ViewModelBase
 {
 	public event EventHandler<string>? TabRequested;
 

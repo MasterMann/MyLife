@@ -16,14 +16,15 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\MyLife.App.Shared\MyLife.App.Shared.csproj" />
+		<ProjectReference Include="..\..\Plugins\MyLife.App.Plugins.Core\MyLife.App.Plugins.Core.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Views\Components\BottomNavigation\BottomNavigationItemView.axaml.cs">
-	    <DependentUpon>BottomNavigationItemView.axaml</DependentUpon>
+	  <Compile Update="Views\Components\TabNavigation\TabNavigationItemView.axaml.cs">
+	    <DependentUpon>TabNavigationItemView.axaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Views\Components\BottomNavigation\BottomNavigationView.axaml.cs">
-	    <DependentUpon>%(Filename)</DependentUpon>
+	  <Compile Update="Views\Components\TabNavigation\TabNavigationView.axaml.cs">
+	    <DependentUpon>TabNavigationView.axaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Views\Components\Containers\Tabs\TabContainerView.axaml.cs">
 	    <DependentUpon>TabContainerView.axaml</DependentUpon>

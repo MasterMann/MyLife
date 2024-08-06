@@ -1,14 +1,9 @@
-﻿using Avalonia.Controls;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 
 using CommunityToolkit.Mvvm.ComponentModel;
 
-using MyLife.App.Android.UI.Mobile.ViewModels.Content;
-using MyLife.App.Shared.ViewModels;
-using MyLife.App.Android.UI.Mobile.Models.Containers.Tabs;
 
-
-namespace MyLife.App.Android.UI.Mobile.ViewModels.Components.TabHeader;
+namespace MyLife.App.Shared.ViewModels.Components.TabHeader;
 
 
 public partial class TabHeaderViewModel : ViewModelBase

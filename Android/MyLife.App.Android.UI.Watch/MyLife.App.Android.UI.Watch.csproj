@@ -19,15 +19,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Views\Components\BottomNavigation\BottomNavigationItem.axaml.cs">
-	    <DependentUpon>%(Filename)</DependentUpon>
-	  </Compile>
-	  <Compile Update="Views\Components\BottomNavigation\BottomNavigationView.axaml.cs">
-	    <DependentUpon>%(Filename)</DependentUpon>
-	  </Compile>
-	  <Compile Update="Views\Components\Containers\TabContainer.axaml.cs">
-	    <DependentUpon>%(Filename)</DependentUpon>
-	  </Compile>
 	  <Compile Update="Views\MainView.axaml.cs">
 	    <DependentUpon>%(Filename)</DependentUpon>
 	  </Compile>

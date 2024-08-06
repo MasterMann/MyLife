@@ -1,4 +1,4 @@
-﻿namespace MyLife.App.Android.UI.Mobile.Models.Containers.Tabs;
+﻿namespace MyLife.App.Shared.Models.UI.Containers.Tabs;
 
 
 public enum TabActionPriority

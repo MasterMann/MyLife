@@ -5,8 +5,8 @@
              
 			 xmlns:c-buttons="clr-namespace:MyLife.App.Shared.Views.Components.Buttons;assembly=MyLife.App.Shared"
 			 
-			 xmlns:vm="clr-namespace:MyLife.App.Android.UI.Mobile.ViewModels.Components.TabHeader"
-			 xmlns:conv="clr-namespace:MyLife.App.Android.UI.Mobile.Utilities.Converters.Components.TabHeader"
+			 xmlns:vm="clr-namespace:MyLife.App.Shared.ViewModels.Components.TabHeader;assembly=MyLife.App.Shared"
+			 xmlns:conv="clr-namespace:MyLife.App.Shared.Utilities.UI.Converters.Components.TabHeader;assembly=MyLife.App.Shared"
 			 
 			 mc:Ignorable="d"
 			 d:DesignWidth="500" d:DesignHeight="100"

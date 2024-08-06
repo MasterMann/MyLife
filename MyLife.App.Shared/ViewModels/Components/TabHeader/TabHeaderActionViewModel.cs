@@ -1,11 +1,12 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using System;
+
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
-using MyLife.App.Android.UI.Mobile.Models.Containers.Tabs;
-using MyLife.App.Shared.ViewModels;
+using MyLife.App.Shared.Models.UI.Containers.Tabs;
 
 
-namespace MyLife.App.Android.UI.Mobile.ViewModels.Components.TabHeader;
+namespace MyLife.App.Shared.ViewModels.Components.TabHeader;
 
 
 public partial class TabHeaderActionViewModel: ViewModelBase

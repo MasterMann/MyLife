@@ -1,13 +1,14 @@
 ﻿using System.Globalization;
 
 using Avalonia.Data.Converters;
-using MyLife.App.Android.UI.Mobile.ViewModels.Components.TabHeader;
+using MyLife.App.Shared.ViewModels.Components.TabHeader;
 using MyLife.App.Shared.ViewModels.Components.Buttons;
 using MyLife.App.Shared.Models.UI.Components.Buttons;
 using CommunityToolkit.Mvvm.Input;
+using System;
 
 
-namespace MyLife.App.Android.UI.Mobile.Utilities.Converters.Components.TabHeader;
+namespace MyLife.App.Shared.Utilities.UI.Converters.Components.TabHeader;
 
 
 public sealed class TabHeaderActionButtonVMConverter: IValueConverter

@@ -4,10 +4,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              
 			 xmlns:c-header="clr-namespace:MyLife.App.Android.UI.Mobile.Views.Components.TabHeader"
-			 xmlns:vm-header="clr-namespace:MyLife.App.Android.UI.Mobile.ViewModels.Components.TabHeader"
+			 xmlns:vm-header="clr-namespace:MyLife.App.Shared.ViewModels.Components.TabHeader;assembly=MyLife.App.Shared"
 			 
-			 xmlns:vm="clr-namespace:MyLife.App.Android.UI.Mobile.ViewModels.Components.Containers.Tabs"
-			 xmlns:vm-content="clr-namespace:MyLife.App.Android.UI.Mobile.ViewModels.Content"
+			 xmlns:vm="clr-namespace:MyLife.App.Shared.ViewModels.Components.Containers.Tabs;assembly=MyLife.App.Shared"
+			 xmlns:vm-content="clr-namespace:MyLife.App.Shared.ViewModels.Content;assembly=MyLife.App.Shared"
 			 
 			 xmlns:vm-content-todo="clr-namespace:MyLife.App.Android.UI.Mobile.ViewModels.Content.Todo"
 			 
@@ -23,7 +23,7 @@
 		>
 			<vm:TabContainerViewModel.HeaderConfig>
 				<vm-header:TabHeaderViewModel
-					TitleLabel="TODO"
+					TitleLabel="Test"
 				>
 					<vm-header:TabHeaderViewModel.Actions>
 						<vm-header:TabHeaderActionViewModel

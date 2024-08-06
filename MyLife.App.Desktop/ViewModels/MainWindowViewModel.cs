@@ -1,7 +1,7 @@
-﻿using MyLife.App.Android.UI.Mobile.Models.Containers.Tabs;
-using MyLife.App.Android.UI.Mobile.ViewModels;
+﻿using MyLife.App.Android.UI.Mobile.ViewModels;
 using MyLife.App.Android.UI.Mobile.ViewModels.Content.Todo;
 using MyLife.App.Shared.ViewModels;
+using MyLife.App.Shared.Models.UI.Containers.Tabs;
 
 
 namespace MyLife.App.Desktop.ViewModels;
@@ -11,7 +11,7 @@ public partial class MainWindowViewModel : ViewModelBase
 {
 	public MobileMainViewModel Content { get; set; } = new()
 	{
-		BottomNav = new()
+		Navigation = new()
 		{
 			Tabs =
 			[

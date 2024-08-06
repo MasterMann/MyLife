@@ -5,18 +5,18 @@
              
 			 xmlns:md-icons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
 			 
-			 xmlns:c="clr-namespace:MyLife.App.Android.UI.Mobile.Views.Components.BottomNavigation"
-			 xmlns:vm="clr-namespace:MyLife.App.Android.UI.Mobile.ViewModels.Components.BottomNavigation"
+			 xmlns:c="clr-namespace:MyLife.App.Android.UI.Mobile.Views.Components.TabNavigation"
+			 xmlns:vm="clr-namespace:MyLife.App.Shared.ViewModels.Components.TabNavigation;assembly=MyLife.App.Shared"
 
 			 mc:Ignorable="d"
 			 d:DesignWidth="70" d:DesignHeight="70"
 			 
 			 MinWidth="50" Height="50"
              
-			 x:Class="MyLife.App.Android.UI.Mobile.Views.Components.BottomNavigation.BottomNavigationItemView">
+			 x:Class="MyLife.App.Android.UI.Mobile.Views.Components.TabNavigation.TabNavigationItemView">
 
 	<Design.DataContext>
-		<vm:BottomNavigationItemViewModel 
+		<vm:TabNavigationItemViewModel
 			TabIconId="Home"
 			TabId="home"
 			TabName="Home1234567890"
@@ -25,8 +25,8 @@
 	</Design.DataContext>
 
 	<Button
-		IsEnabled="{Binding IsEnabled, DataType={x:Type vm:BottomNavigationItemViewModel}}"
-		Command="{ReflectionBinding $parent[c:BottomNavigationItemView]((vm:BottomNavigationItemViewModel)DataContext).Execute}"
+		IsEnabled="{Binding IsEnabled, DataType={x:Type vm:TabNavigationItemViewModel}}"
+		Command="{ReflectionBinding $parent[c:TabNavigationItemView]((vm:TabNavigationItemViewModel)DataContext).Execute}"
 		CornerRadius="30 30"
 		BorderBrush="Transparent"
 		Background="Transparent"
@@ -43,16 +43,16 @@
 			Spacing="5"
 		>
 			<md-icons:MaterialIcon
-				Kind="{Binding TabIconId, DataType={x:Type vm:BottomNavigationItemViewModel}}"
-				Width="{Binding $parent[c:BottomNavigationItemView].TabIconSize}"
-				Height="{Binding $parent[c:BottomNavigationItemView].TabIconSize}"
+				Kind="{Binding TabIconId, DataType={x:Type vm:TabNavigationItemViewModel}}"
+				Width="{Binding $parent[c:TabNavigationItemView].TabIconSize}"
+				Height="{Binding $parent[c:TabNavigationItemView].TabIconSize}"
 			/>
 			<TextBlock
 				Name="tabNameLabel"
 				HorizontalAlignment="Center"
-				Text="{Binding TabName, DataType={x:Type vm:BottomNavigationItemViewModel}}"
+				Text="{Binding TabName, DataType={x:Type vm:TabNavigationItemViewModel}}"
 				FontFamily="Roboto"
-				FontWeight="{Binding $parent[c:BottomNavigationItemView].TabNameLabelWeight}"
+				FontWeight="{Binding $parent[c:TabNavigationItemView].TabNameLabelWeight}"
 				FontSize="12"
 			/>
 		</StackPanel>

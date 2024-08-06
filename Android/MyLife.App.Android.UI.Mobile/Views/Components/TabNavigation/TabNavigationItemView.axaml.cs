@@ -4,13 +4,13 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Media;
 
-using MyLife.App.Android.UI.Mobile.ViewModels.Components.BottomNavigation;
+using MyLife.App.Shared.ViewModels.Components.TabNavigation;
 
 
-namespace MyLife.App.Android.UI.Mobile.Views.Components.BottomNavigation;
+namespace MyLife.App.Android.UI.Mobile.Views.Components.TabNavigation;
 
 
-public partial class BottomNavigationItemView : UserControl
+public partial class TabNavigationItemView: UserControl
 {
 	static int DefaultTabIconSize = 20;
 	static int SelectedTabIconSize = 24;
@@ -19,26 +19,26 @@ public partial class BottomNavigationItemView : UserControl
 	static FontWeight SelectedTabNameLabelWeight = FontWeight.Bold;
 
 	public static readonly StyledProperty<int> TabIconSizeProperty =
-		AvaloniaProperty.Register<BottomNavigationItemView, int>(nameof(TabIconSize), defaultValue: DefaultTabIconSize);
+		AvaloniaProperty.Register<TabNavigationItemView, int>(nameof(TabIconSize), defaultValue: DefaultTabIconSize);
 
 	public static readonly StyledProperty<FontWeight> TabNameLabelWeightProperty =
-		AvaloniaProperty.Register<BottomNavigationItemView, FontWeight>(nameof(TabNameLabelWeight), defaultValue: DefaultTabNameLabelWeight);
+		AvaloniaProperty.Register<TabNavigationItemView, FontWeight>(nameof(TabNameLabelWeight), defaultValue: DefaultTabNameLabelWeight);
 
 	public int TabIconSize
 	{
-		get => GetValue(TabIconSizeProperty);
-		set => SetValue(TabIconSizeProperty, value);
+		get => this.GetValue(TabIconSizeProperty);
+		set => this.SetValue(TabIconSizeProperty, value);
 	}
 
 	public FontWeight TabNameLabelWeight
 	{
-		get => GetValue(TabNameLabelWeightProperty);
-		set => SetValue(TabNameLabelWeightProperty, value);
+		get => this.GetValue(TabNameLabelWeightProperty);
+		set => this.SetValue(TabNameLabelWeightProperty, value);
 	}
 
-	BottomNavigationItemViewModel _vm;
+	TabNavigationItemViewModel _vm;
 
-	public BottomNavigationItemView()
+	public TabNavigationItemView()
     {
         this.InitializeComponent();
 
@@ -47,7 +47,7 @@ public partial class BottomNavigationItemView : UserControl
 
 	void OnLoaded(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
 	{
-		var vm = (BottomNavigationItemViewModel)this.DataContext;
+		var vm = (TabNavigationItemViewModel)this.DataContext;
 		if (vm != null)
 		{
 			this._vm = vm;
@@ -62,7 +62,7 @@ public partial class BottomNavigationItemView : UserControl
 	{
 		switch (e.PropertyName)
 		{
-			case nameof(BottomNavigationItemViewModel.IsSelected):
+			case nameof(TabNavigationItemViewModel.IsSelected):
 			{
 				this.UpdateTabIconSize(this._vm.IsSelected);
 				this.UpdateTabNameLabelWeight(this._vm.IsSelected);

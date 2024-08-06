@@ -5,7 +5,7 @@
 			 xmlns:ant-datagrid="clr-namespace:AntDesign;assembly=AntDesign.DataGrid"
 			 xmlns:ant-colorpicker="clr-namespace:AntDesign;assembly=AntDesign.ColorPicker"
              
-			 xmlns:conv="clr-namespace:MyLife.App.Shared.Utilities.Converters.UI"
+			 xmlns:conv="clr-namespace:MyLife.App.Shared.Utilities.UI.Converters"
              
 			 RequestedThemeVariant="Default"
 			 
@@ -16,12 +16,6 @@
         <SimpleTheme />
 
 		<material-icons:MaterialIconStyles />
-
-		<!--<ant:AntDesign Coloring="None" IsRounded="True" />
-		<ant-datagrid:AntDesignDataGrid />
-		<ant-colorpicker:AntDesignColorPicker />
-
-		<StyleInclude Source="avares://CherylUI/Index.axaml" />-->
     </Application.Styles>
 
 	<Application.Resources>

@@ -1,10 +1,10 @@
 ﻿using System.Collections.ObjectModel;
-using System.Reflection.Emit;
 
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
 using MyLife.App.Shared.ViewModels.Components.Buttons;
+using MyLife.App.Shared.ViewModels.Content;
 
 
 namespace MyLife.App.Android.UI.Mobile.ViewModels.Content.Todo;
@@ -88,19 +88,6 @@ public partial class TodoTabContentViewModel : TabContentViewModel
 	{
 		if (this._itemInEdit != string.Empty) this.CancelItemEditing(this._itemInEdit);
 
-		//this.Items = new(this.Items.Select(item =>
-		//{
-		//	if (item.ID == itemID)
-		//	{
-		//		this._itemTextBeforeEditing = item.Text;
-		//		this._itemInEdit = item.ID;
-
-		//		item.IsEditModeEnabled = true;
-		//	}
-
-		//	return item;
-		//}));
-
 		var foundItem = this.Items.FirstOrDefault(item => item.Id == itemID);
 		if (foundItem != null)
 		{
@@ -123,15 +110,6 @@ public partial class TodoTabContentViewModel : TabContentViewModel
 			this._itemInEdit = string.Empty;
 		}
 	}
-		//=> this.Items = new(this.Items.Select(item =>
-		//{
-		//	item.IsEditModeEnabled = false;
-
-		//	this._itemTextBeforeEditing = string.Empty;
-		//	this._itemInEdit = string.Empty;
-
-		//	return item;
-		//}));
 
 	[RelayCommand]
 	public void CancelItemEditing(string itemID)
@@ -146,18 +124,6 @@ public partial class TodoTabContentViewModel : TabContentViewModel
 			this._itemInEdit = string.Empty;
 		}
 	}
-		//=> this.Items = new(this.Items.Select(item =>
-		//{
-		//	if (item.ID == itemID)
-		//	{
-		//		item.Text = this._itemTextBeforeEditing;
-		//		item.IsEditModeEnabled = false;
-
-		//		this._itemTextBeforeEditing = string.Empty;
-		//		this._itemInEdit = string.Empty;
-		//	}
-		//	return item;
-		//}));
 
 	// TODO: Show confirmation dialog
 	[RelayCommand]	
@@ -169,5 +135,4 @@ public partial class TodoTabContentViewModel : TabContentViewModel
 			this.Items.Remove(foundItem);
 		}
 	}
-
 }

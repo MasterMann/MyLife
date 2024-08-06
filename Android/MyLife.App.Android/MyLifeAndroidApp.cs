@@ -8,7 +8,7 @@ using MyLife.App.Android.UI.Mobile.Views;
 using MyLife.App.Android.UI.Mobile.ViewModels;
 using MyLife.App.Android.UI.Watch.ViewModels;
 using MyLife.App.Android.UI.Mobile.ViewModels.Content.Todo;
-using MyLife.App.Android.UI.Mobile.Models.Containers.Tabs;
+using MyLife.App.Shared.Models.UI.Containers.Tabs;
 
 
 namespace MyLife.App.Android;
@@ -42,7 +42,7 @@ public class MyLifeAndroidApp: MyLifeApp
 	{
 		DataContext = new MobileMainViewModel()
 		{
-			BottomNav = new()
+			Navigation = new()
 			{
 				NavItems =
 				[

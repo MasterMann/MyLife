@@ -3,23 +3,23 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              
-			 xmlns:c-bottom-nav="clr-namespace:MyLife.App.Android.UI.Mobile.Views.Components.BottomNavigation"
-			 xmlns:vm="clr-namespace:MyLife.App.Android.UI.Mobile.ViewModels.Components.BottomNavigation"
+			 xmlns:c-tab-nav="clr-namespace:MyLife.App.Android.UI.Mobile.Views.Components.TabNavigation"
+			 xmlns:vm="clr-namespace:MyLife.App.Shared.ViewModels.Components.TabNavigation;assembly=MyLife.App.Shared"
 			 
 			 
 			 xmlns:c-tabs="clr-namespace:MyLife.App.Android.UI.Mobile.Views.Components.Containers.Tabs"
-			 xmlns:vm-tabs="clr-namespace:MyLife.App.Android.UI.Mobile.ViewModels.Components.Containers.Tabs"
+			 xmlns:vm-tabs="clr-namespace:MyLife.App.Shared.ViewModels.Components.Containers.Tabs;assembly=MyLife.App.Shared"
 			 
 			 xmlns:vm-content-todo="clr-namespace:MyLife.App.Android.UI.Mobile.ViewModels.Content.Todo"
 			 
 			 mc:Ignorable="d"
 			 d:DesignWidth="500" d:DesignHeight="750"
              
-			 x:Class="MyLife.App.Android.UI.Mobile.Views.Components.BottomNavigation.BottomNavigationView">
+			 x:Class="MyLife.App.Android.UI.Mobile.Views.Components.TabNavigation.TabNavigationView">
 
 	<Design.DataContext>
-		<vm:BottomNavigationViewModel>
-			<vm:BottomNavigationViewModel.Tabs>
+		<vm:TabNavigationViewModel>
+			<vm:TabNavigationViewModel.Tabs>
 				<vm-tabs:TabContainerViewModel
 					TabId="test"
 					TabName="Test tab"
@@ -40,25 +40,25 @@
 						</vm-content-todo:TodoTabContentViewModel>
 					</vm-tabs:TabContainerViewModel.Content>
 				</vm-tabs:TabContainerViewModel>
-			</vm:BottomNavigationViewModel.Tabs>
-			<vm:BottomNavigationViewModel.NavItems>
-				<vm:BottomNavigationItemViewModel
+			</vm:TabNavigationViewModel.Tabs>
+			<vm:TabNavigationViewModel.NavItems>
+				<vm:TabNavigationItemViewModel
 					TabIconId="Abacus"
 					TabId="tod12o"
 					TabName="sddasda"
 				/>
-				<vm:BottomNavigationItemViewModel
+				<vm:TabNavigationItemViewModel
 					TabIconId="Home"
 					TabId="dsdasd"
 					TabName="test"
 				/>
-				<vm:BottomNavigationItemViewModel
+				<vm:TabNavigationItemViewModel
 					TabIconId="Grid"
 					TabId="asdsada"
 					TabName="test 2"
 				/>
-			</vm:BottomNavigationViewModel.NavItems>
-		</vm:BottomNavigationViewModel>
+			</vm:TabNavigationViewModel.NavItems>
+		</vm:TabNavigationViewModel>
 	</Design.DataContext>
 
 	<UserControl.Resources>
@@ -70,21 +70,21 @@
 			DockPanel.Dock="Bottom"
 			MaxHeight="80"
 			BoxShadow="5 0 5 3 LightGray"
-			IsVisible="{Binding !!NavItems.Count, DataType={x:Type vm:BottomNavigationViewModel}}"
+			IsVisible="{Binding !!NavItems.Count, DataType={x:Type vm:TabNavigationViewModel}}"
 		>		
 			<ItemsControl
 				Margin="15, 5, 15, 5"
-				ItemsSource="{Binding NavItems, DataType={x:Type vm:BottomNavigationViewModel}}">
+				ItemsSource="{Binding NavItems, DataType={x:Type vm:TabNavigationViewModel}}">
 				<ItemsControl.ItemTemplate>
-					<DataTemplate DataType="{x:Type vm:BottomNavigationItemViewModel}">
-						<c-bottom-nav:BottomNavigationItemView Padding="5, 0, 5, 0" DataContext="{ReflectionBinding}" />
+					<DataTemplate DataType="{x:Type vm:TabNavigationItemViewModel}">
+						<c-tab-nav:TabNavigationItemView Padding="5, 0, 5, 0" DataContext="{ReflectionBinding}" />
 					</DataTemplate>
 				</ItemsControl.ItemTemplate>
 				<ItemsControl.ItemsPanel>
 					<ItemsPanelTemplate>
 						<UniformGrid
 							Rows="1"
-							Columns="{Binding NavItems.Count, DataType={x:Type vm:BottomNavigationViewModel}}"
+							Columns="{Binding NavItems.Count, DataType={x:Type vm:TabNavigationViewModel}}"
 						/>
 					</ItemsPanelTemplate>
 				</ItemsControl.ItemsPanel>

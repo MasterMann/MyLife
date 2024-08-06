@@ -3,27 +3,27 @@ using System.Collections.Specialized;
 
 using CommunityToolkit.Mvvm.ComponentModel;
 
-using MyLife.App.Android.UI.Mobile.ViewModels.Components.Containers.Tabs;
-using MyLife.App.Shared.ViewModels;
+using MyLife.App.Shared.ViewModels.Components.Containers.Tabs;
+using System.Linq;
 
 
-namespace MyLife.App.Android.UI.Mobile.ViewModels.Components.BottomNavigation;
+namespace MyLife.App.Shared.ViewModels.Components.TabNavigation;
 
 
-public partial class BottomNavigationViewModel : ViewModelBase
+public partial class TabNavigationViewModel : ViewModelBase
 {
 	[ObservableProperty]
 	ObservableCollection<TabContainerViewModel> _tabs = [];
 
 	[ObservableProperty]
-	ObservableCollection<BottomNavigationItemViewModel> _navItems = [];
+	ObservableCollection<TabNavigationItemViewModel> _navItems = [];
 
 	[ObservableProperty]
 	string _selectedTabId = string.Empty;
 
 	public string DefaultTabId { get; set; } = string.Empty;
 
-	public BottomNavigationViewModel()
+	public TabNavigationViewModel()
 	{
 		this.NavItems.CollectionChanged += this.NavItemsListChanged;
 	}
@@ -38,7 +38,7 @@ public partial class BottomNavigationViewModel : ViewModelBase
 			{
 				foreach (var item in e.NewItems)
 				{
-					var navItem = (BottomNavigationItemViewModel)item;
+					var navItem = (TabNavigationItemViewModel)item;
 
 					navItem.TabRequested += this.OnTabRequested;
 				}
@@ -49,7 +49,7 @@ public partial class BottomNavigationViewModel : ViewModelBase
 			{
 				foreach (var item in e.OldItems)
 				{
-					var navItem = (BottomNavigationItemViewModel)item;
+					var navItem = (TabNavigationItemViewModel)item;
 
 					navItem.TabRequested -= this.OnTabRequested;
 				}
@@ -60,13 +60,13 @@ public partial class BottomNavigationViewModel : ViewModelBase
 			{
 				foreach (var item in e.OldItems)
 				{
-					var navItem = (BottomNavigationItemViewModel)item;
+					var navItem = (TabNavigationItemViewModel)item;
 
 					navItem.TabRequested -= this.OnTabRequested;
 				}
 				foreach (var item in e.NewItems)
 				{
-					var navItem = (BottomNavigationItemViewModel)item;
+					var navItem = (TabNavigationItemViewModel)item;
 
 					navItem.TabRequested += this.OnTabRequested;
 				}

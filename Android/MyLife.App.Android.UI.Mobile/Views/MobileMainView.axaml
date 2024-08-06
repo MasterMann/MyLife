@@ -3,10 +3,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              
-			 xmlns:c-bottom-nav="clr-namespace:MyLife.App.Android.UI.Mobile.Views.Components.BottomNavigation"
-			 xmlns:vm-c-bottom-nav="clr-namespace:MyLife.App.Android.UI.Mobile.ViewModels.Components.BottomNavigation"
+			 xmlns:c-tab-nav="clr-namespace:MyLife.App.Android.UI.Mobile.Views.Components.TabNavigation"
+			 xmlns:vm-c-tab-nav="clr-namespace:MyLife.App.Shared.ViewModels.Components.TabNavigation;assembly=MyLife.App.Shared"
 
-			 xmlns:vm-tabs="clr-namespace:MyLife.App.Android.UI.Mobile.ViewModels.Components.Containers.Tabs"
+			 xmlns:vm-tabs="clr-namespace:MyLife.App.Shared.ViewModels.Components.Containers.Tabs;assembly=MyLife.App.Shared"
 			 
 			 xmlns:vm-content-todo="clr-namespace:MyLife.App.Android.UI.Mobile.ViewModels.Content.Todo"
 			 
@@ -19,9 +19,9 @@
     
 	<Design.DataContext>
 		<vm:MobileMainViewModel>
-			<vm:MobileMainViewModel.BottomNav>
-				<vm-c-bottom-nav:BottomNavigationViewModel>
-					<vm-c-bottom-nav:BottomNavigationViewModel.Tabs>
+			<vm:MobileMainViewModel.Navigation>
+				<vm-c-tab-nav:TabNavigationViewModel>
+					<vm-c-tab-nav:TabNavigationViewModel.Tabs>
 						<vm-tabs:TabContainerViewModel
 							TabId="test"
 							TabName="Test tab"
@@ -42,41 +42,42 @@
 								</vm-content-todo:TodoTabContentViewModel>
 							</vm-tabs:TabContainerViewModel.Content>
 						</vm-tabs:TabContainerViewModel>
-					</vm-c-bottom-nav:BottomNavigationViewModel.Tabs>
-					<vm-c-bottom-nav:BottomNavigationViewModel.NavItems>
-						<vm-c-bottom-nav:BottomNavigationItemViewModel
+					</vm-c-tab-nav:TabNavigationViewModel.Tabs>
+					<vm-c-tab-nav:TabNavigationViewModel.NavItems>
+						<vm-c-tab-nav:TabNavigationItemViewModel
 							TabIconId="FormatListChecks"
 							TabId="todo"
 							TabName="TODO"
 						/>
-						<vm-c-bottom-nav:BottomNavigationItemViewModel
+						<vm-c-tab-nav:TabNavigationItemViewModel
 							TabIconId="Note"
 							TabId="notes"
 							TabName="Notes"
 						/>
-						<vm-c-bottom-nav:BottomNavigationItemViewModel
+						<vm-c-tab-nav:TabNavigationItemViewModel
 							TabIconId="Home"
 							TabId="home"
 							TabName="Home"
 						/>
-						<vm-c-bottom-nav:BottomNavigationItemViewModel
+						<vm-c-tab-nav:TabNavigationItemViewModel
 							TabIconId="ViewGridPlus"
 							TabId="services"
 							TabName="Services"
 						/>
-						<vm-c-bottom-nav:BottomNavigationItemViewModel
+						<vm-c-tab-nav:TabNavigationItemViewModel
 							TabIconId="Abacus"
 							TabId="spending"
 							TabName="Spending"
 						/>
-					</vm-c-bottom-nav:BottomNavigationViewModel.NavItems>
-				</vm-c-bottom-nav:BottomNavigationViewModel>
-			</vm:MobileMainViewModel.BottomNav>
-		</vm:MobileMainViewModel>
+					</vm-c-tab-nav:TabNavigationViewModel.NavItems>
+				</vm-c-tab-nav:TabNavigationViewModel>
+			</vm:MobileMainViewModel.Navigation>
+		
+	</vm:MobileMainViewModel>
     </Design.DataContext>
 
-	<c-bottom-nav:BottomNavigationView
-		DataContext="{ReflectionBinding BottomNav}"
+	<c-tab-nav:TabNavigationView
+		DataContext="{ReflectionBinding Navigation}"
 	/>
 
 </UserControl>

@@ -9,7 +9,7 @@
 			 xmlns:vm="clr-namespace:MyLife.App.Shared.ViewModels.Components.Buttons"
 			 
 			 xmlns:m-buttons="clr-namespace:MyLife.App.Shared.Models.UI.Components.Buttons"
-			 xmlns:conv="clr-namespace:MyLife.App.Shared.Utilities.Converters.UI"
+			 xmlns:conv="clr-namespace:MyLife.App.Shared.Utilities.UI.Converters"
 			 
 			 mc:Ignorable="d"
 			 d:DesignWidth="100" d:DesignHeight="100"
@@ -64,31 +64,28 @@
 				Value="{x:Static m-buttons:IconButtonStyle.ICON}"
 			>
 				<vm:IconButtonStyleSelector.Content>
-					<Border
+					<Button
+						IsEnabled="{ReflectionBinding $parent[c:IconButton]((vm:IconButtonViewModel)DataContext).IsEnabled}"
+						HorizontalContentAlignment="Center"
+						CornerRadius="40 40"
 						Height="{Binding $parent[c:IconButton].Height}"
 						Width="{Binding $parent[c:IconButton].Width}"
+						BorderBrush="Transparent"
+						Background="Transparent"
+						Command="{ReflectionBinding $parent[c:IconButton]((vm:IconButtonViewModel)DataContext).Execute}"
 					>
-						<Button
-							IsEnabled="{ReflectionBinding $parent[c:IconButton]((vm:IconButtonViewModel)DataContext).IsEnabled}"
-							HorizontalContentAlignment="Center"
-							CornerRadius="40 40"
-							BorderBrush="Transparent"
-							Background="Transparent"
-							Command="{ReflectionBinding $parent[c:IconButton]((vm:IconButtonViewModel)DataContext).Execute}"
-						>
-							<Button.Styles>
-								<Style Selector="Button:pointerover">
-									<Setter Property="BorderThickness" Value="0" />
-								</Style>
-							</Button.Styles>
+						<Button.Styles>
+							<Style Selector="Button:pointerover">
+								<Setter Property="BorderThickness" Value="0" />
+							</Style>
+						</Button.Styles>
 
-							<md-icons:MaterialIcon
-								Kind="{ReflectionBinding $parent[c:IconButton]((vm:IconButtonViewModel)DataContext).IconId}"
-								Width="{Binding $parent[c:IconButton].Width, Converter={StaticResource mathSubtractConverter}, ConverterParameter=20}"
-								Height="{Binding $parent[c:IconButton].Height, Converter={StaticResource mathSubtractConverter}, ConverterParameter=20}"
-							/>
-						</Button>
-					</Border>
+						<md-icons:MaterialIcon
+							Kind="{ReflectionBinding $parent[c:IconButton]((vm:IconButtonViewModel)DataContext).IconId}"
+							Width="{Binding $parent[c:IconButton].Width, Converter={StaticResource mathSubtractConverter}, ConverterParameter=20}"
+							Height="{Binding $parent[c:IconButton].Height, Converter={StaticResource mathSubtractConverter}, ConverterParameter=20}"
+						/>
+					</Button>
 				</vm:IconButtonStyleSelector.Content>
 			</vm:IconButtonStyleSelector>
 		</ContentControl.DataTemplates>
