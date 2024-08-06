@@ -1,7 +1,7 @@
 ﻿using MyLife.App.Android.UI.Mobile.ViewModels;
-using MyLife.App.Android.UI.Mobile.ViewModels.Content.Todo;
-using MyLife.App.Shared.ViewModels;
 using MyLife.App.Shared.Models.UI.Containers.Tabs;
+using MyLife.App.Shared.UI.ViewModels;
+using MyLife.App.Plugins.Content.Todo.ViewModels;
 
 
 namespace MyLife.App.Desktop.ViewModels;

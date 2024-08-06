@@ -16,7 +16,7 @@
 		d:DesignWidth="400" d:DesignHeight="600"
         
 		x:Class="MyLife.App.Desktop.Views.MainWindow"
-        Icon="avares://MyLife.App.Shared/Assets/avalonia-logo.ico"
+        Icon="avares://MyLife.App.Shared.UI/Assets/avalonia-logo.ico"
         Title="My Life"
 		
 		Width="400" Height="600">

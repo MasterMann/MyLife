@@ -1,5 +1,5 @@
-﻿using MyLife.App.Shared.ViewModels.Components.TabNavigation;
-using MyLife.App.Shared.ViewModels;
+﻿using MyLife.App.Shared.UI.ViewModels;
+using MyLife.App.Shared.UI.ViewModels.Components.TabNavigation;
 
 
 namespace MyLife.App.Android.UI.Mobile.ViewModels;

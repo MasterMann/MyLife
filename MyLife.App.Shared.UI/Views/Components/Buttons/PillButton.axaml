@@ -1,0 +1,57 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             
+			 xmlns:md-icons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+			 
+			 xmlns:c="clr-namespace:MyLife.App.Shared.UI.Views.Components.Buttons"
+			 xmlns:vm="clr-namespace:MyLife.App.Shared.UI.ViewModels.Components.Buttons"
+			 
+			 mc:Ignorable="d"
+			 d:DesignWidth="250" d:DesignHeight="100"
+             
+			 x:Class="MyLife.App.Shared.UI.Views.Components.Buttons.PillButton">
+
+	<Design.DataContext>
+		<vm:PillButtonViewModel
+			IconId="FormatListChecks"
+			Id="todo"
+			Label="Notes"
+		/>
+	</Design.DataContext>
+
+	<Border
+		Height="40"
+		BoxShadow="0 0 5 2 LightGray"
+		CornerRadius="15 15"
+	>
+		<Button
+			IsEnabled="{Binding IsEnabled, DataType={x:Type vm:PillButtonViewModel}}"
+			HorizontalContentAlignment="Left"
+			CornerRadius="15 15"
+			Command="{ReflectionBinding $parent[c:PillButton]((vm:PillButtonViewModel)DataContext).Execute}"
+		>
+			<StackPanel
+				Orientation="Horizontal"
+				Spacing="15"
+				Margin="15, 0, 0, 0"
+			>
+				<md-icons:MaterialIcon
+					Kind="{Binding IconId, DataType={x:Type vm:PillButtonViewModel}}"
+					Width="25"
+					Height="25"
+				/>
+				<TextBlock
+					Text="{Binding Label, DataType={x:Type vm:PillButtonViewModel}}"
+					FontFamily="Roboto"
+					FontSize="15"
+					FontWeight="Bold"
+					VerticalAlignment="Center"
+				/>
+			</StackPanel>
+		</Button>
+	</Border>
+	
+	
+</UserControl>

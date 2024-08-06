@@ -1,0 +1,88 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             
+			 xmlns:c-buttons="clr-namespace:MyLife.App.Shared.UI.Views.Components.Buttons"
+			 
+			 xmlns:vm="clr-namespace:MyLife.App.Shared.UI.ViewModels.Components.TabHeader"
+			 xmlns:conv="clr-namespace:MyLife.App.Shared.UI.Utilities.Converters.Components.TabHeader"
+			 
+			 mc:Ignorable="d"
+			 d:DesignWidth="500" d:DesignHeight="100"
+             
+			 x:Class="MyLife.App.Shared.UI.Views.Components.TabHeader.TabHeaderView">
+
+	<Design.DataContext>
+		<vm:TabHeaderViewModel
+			TitleLabel="Test Tab"
+		>
+			<vm:TabHeaderViewModel.Actions>
+				<vm:TabHeaderActionViewModel 
+					ActionId="test"
+					IconId="CloudArrowUp"
+					IsEnabled="True"
+					DisplayName="Test Action"
+					Priority="DEFAULT"
+				/>
+			</vm:TabHeaderViewModel.Actions>
+		</vm:TabHeaderViewModel>
+	</Design.DataContext>
+
+	<UserControl.Resources>
+		<conv:TabHeaderActionButtonVMConverter x:Key="headerActionButtonVMConverter" />
+	</UserControl.Resources>
+	
+	<Border
+		BoxShadow="5 0 5 3 LightGray"
+		Height="65"
+	>
+		<Grid
+			RowDefinitions="*"
+			ColumnDefinitions="Auto, *, Auto"
+			Margin="10, 5, 10, 5"
+		>
+			<TextBlock
+				Grid.Column="0"
+				Classes="Medium"
+				Text="{Binding TitleLabel, DataType={x:Type vm:TabHeaderViewModel}}"
+				Margin="10, 0, 10, 0"
+				VerticalAlignment="Center"
+				FontFamily="Roboto"
+				FontSize="23"
+				FontWeight="Medium"
+			/>
+			<ContentControl
+				Grid.Column="1"
+				Margin="10, 0, 15, 0"
+				Content="{Binding TitleContent, DataType={x:Type vm:TabHeaderViewModel}}"
+				>
+				<ContentControl.ContentTemplate>
+					<vm:TabHeaderTitleContentViewLocator />
+				</ContentControl.ContentTemplate>
+			</ContentControl>
+			<ItemsControl
+				Grid.Column="2"
+				ItemsSource="{Binding Actions, DataType={x:Type vm:TabHeaderViewModel}}"
+			>
+				<ItemsControl.ItemTemplate>
+					<DataTemplate DataType="{x:Type vm:TabHeaderActionViewModel}">
+						<c-buttons:IconButton
+							Width="50"
+							Height="50"
+							DataContext="{ReflectionBinding, Converter={StaticResource headerActionButtonVMConverter}}"
+						/>
+					</DataTemplate>
+				</ItemsControl.ItemTemplate>
+				<ItemsControl.ItemsPanel>
+					<ItemsPanelTemplate>
+						<StackPanel
+							Orientation="Horizontal"
+							Spacing="5"
+						/>
+					</ItemsPanelTemplate>
+				</ItemsControl.ItemsPanel>
+			</ItemsControl>
+		</Grid>
+	</Border>
+</UserControl>

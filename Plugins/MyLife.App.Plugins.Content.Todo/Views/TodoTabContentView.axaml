@@ -1,0 +1,94 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+
+			 xmlns:md-icons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+			 
+			 xmlns:vm="clr-namespace:MyLife.App.Plugins.Content.Todo.ViewModels"
+			 xmlns:c="clr-namespace:MyLife.App.Plugins.Content.Todo.Views"
+			 
+			 xmlns:c-buttons="clr-namespace:MyLife.App.Shared.UI.Views.Components.Buttons;assembly=MyLife.App.Shared.UI"
+
+             mc:Ignorable="d" 
+			 d:DesignWidth="400" d:DesignHeight="500"
+
+			 x:Name="TodoContainer"
+             x:Class="MyLife.App.Plugins.Content.Todo.Views.TodoTabContentView">
+
+	<Design.DataContext>
+		<vm:TodoTabContentViewModel>
+			<vm:TodoTabContentViewModel.Items>
+				<vm:TodoItemViewModel 
+					Text="Test item 1"
+				/>
+				<vm:TodoItemViewModel
+					Text="Test item 2"
+				/>
+				<vm:TodoItemViewModel
+					Text="Test item 3"
+				/>
+				<vm:TodoItemViewModel
+					Text="Test item 3"
+				/>
+				<vm:TodoItemViewModel
+					Text="Test itesdlkfhsdoifhsdifsdoifhseoiefhsoim 3"
+				/>
+				<vm:TodoItemViewModel
+					Text="Test itemsifjsdoifhsoidfhosidhfoisd 3"
+				/>
+				<vm:TodoItemViewModel
+					Text="Test item 3"
+				/>
+				<vm:TodoItemViewModel
+					Text="Test item 3"
+				/>
+				<vm:TodoItemViewModel
+					Text="Test item 3"
+				/>
+				<vm:TodoItemViewModel
+					Text="Test item 3"
+				/>
+				<vm:TodoItemViewModel
+					Text="Test item 3"
+				/>
+			</vm:TodoTabContentViewModel.Items>
+		</vm:TodoTabContentViewModel>
+	</Design.DataContext>
+	
+	<Grid
+		RowDefinitions="*, Auto"
+		ColumnDefinitions="*, Auto"
+	>
+		<ScrollViewer
+			Grid.ColumnSpan="2"
+			Grid.RowSpan="2"
+		>
+			<ItemsControl
+				Padding="0, 10, 0, 85"
+				ItemsSource="{Binding Items, DataType={x:Type vm:TodoTabContentViewModel}}"
+			>
+				<ItemsControl.ItemTemplate>
+					<DataTemplate DataType="{x:Type vm:TodoItemViewModel}">
+						<c:TodoItemView Padding="5" DataContext="{ReflectionBinding}"/>
+					</DataTemplate>
+				</ItemsControl.ItemTemplate>
+				<ItemsControl.ItemsPanel>
+					<ItemsPanelTemplate>
+						<StackPanel
+							Orientation="Vertical"
+						/>
+					</ItemsPanelTemplate>
+				</ItemsControl.ItemsPanel>
+			</ItemsControl>
+		</ScrollViewer>
+		<Canvas>
+			<c-buttons:FloatingActionButton
+				Canvas.Bottom="20"
+				Canvas.Right="20"
+				DataContext="{ReflectionBinding Actions}"
+			/>
+		</Canvas>
+	</Grid>
+	
+</UserControl>

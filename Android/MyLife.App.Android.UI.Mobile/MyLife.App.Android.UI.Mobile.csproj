@@ -15,7 +15,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\..\MyLife.App.Shared.UI\MyLife.App.Shared.UI.csproj" />
 		<ProjectReference Include="..\..\MyLife.App.Shared\MyLife.App.Shared.csproj" />
+		<ProjectReference Include="..\..\Plugins\MyLife.App.Plugins.Content.Todo\MyLife.App.Plugins.Content.Todo.csproj" />
 		<ProjectReference Include="..\..\Plugins\MyLife.App.Plugins.Core\MyLife.App.Plugins.Core.csproj" />
 	</ItemGroup>
 
@@ -32,19 +34,15 @@
 	  <Compile Update="Views\Components\TabHeader\TabHeaderView.axaml.cs">
 	    <DependentUpon>TabHeaderView.axaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Views\Content\Todo\TodoItemView.axaml.cs">
-	    <DependentUpon>TodoItemView.axaml</DependentUpon>
-	  </Compile>
 	  <Compile Update="Views\MainView.axaml.cs">
 	    <DependentUpon>%(Filename)</DependentUpon>
-	  </Compile>
-	  <Compile Update="Views\Content\Todo\TodoTabContentView.axaml.cs">
-	    <DependentUpon>TodoTabContentView.axaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
 	  <Folder Include="Models\Content\Todo\" />
+	  <Folder Include="Services\Features\Content\" />
+	  <Folder Include="Views\Content\" />
 	</ItemGroup>
 	
 </Project>

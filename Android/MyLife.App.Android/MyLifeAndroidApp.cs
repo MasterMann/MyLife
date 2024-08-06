@@ -7,8 +7,9 @@ using MyLife.App.Android.UI.Watch.Views;
 using MyLife.App.Android.UI.Mobile.Views;
 using MyLife.App.Android.UI.Mobile.ViewModels;
 using MyLife.App.Android.UI.Watch.ViewModels;
-using MyLife.App.Android.UI.Mobile.ViewModels.Content.Todo;
 using MyLife.App.Shared.Models.UI.Containers.Tabs;
+using MyLife.App.Plugins.Content.Todo.ViewModels;
+using MyLife.App.Android.Services.Features;
 
 
 namespace MyLife.App.Android;
@@ -21,6 +22,8 @@ public class MyLifeAndroidApp: MyLifeApp
 	protected override void InitPlatform()
 	{
 		base.InitPlatform();
+
+		PluginManager = new AndroidFeaturePluginManager();
 
 		this.IsWatchDevice = DeviceInfo.Idiom == DeviceIdiom.Watch;
 	}

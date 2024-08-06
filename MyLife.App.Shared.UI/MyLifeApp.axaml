@@ -1,0 +1,21 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:material-icons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+			
+			 xmlns:conv="clr-namespace:MyLife.App.Shared.UI.Utilities.Converters"
+             
+			 RequestedThemeVariant="Default"
+			 
+			 x:Class="MyLife.App.Shared.MyLifeApp">
+             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+
+    <Application.Styles>
+        <SimpleTheme />
+
+		<material-icons:MaterialIconStyles />
+    </Application.Styles>
+
+	<Application.Resources>
+		<conv:ExcludeFirstListElementConverter x:Key="excludeFirstListElementConverter" />
+	</Application.Resources>
+</Application>

@@ -1,0 +1,60 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             
+			 xmlns:md-icons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+			 
+			 xmlns:c="clr-namespace:MyLife.App.Shared.UI.Views.Components.TabNavigation"
+			 xmlns:vm="clr-namespace:MyLife.App.Shared.UI.ViewModels.Components.TabNavigation"
+
+			 mc:Ignorable="d"
+			 d:DesignWidth="70" d:DesignHeight="70"
+			 
+			 MinWidth="50" Height="50"
+             
+			 x:Class="MyLife.App.Shared.UI.Views.Components.TabNavigation.TabNavigationItemView">
+
+	<Design.DataContext>
+		<vm:TabNavigationItemViewModel
+			TabIconId="Home"
+			TabId="home"
+			TabName="Home1234567890"
+			IsSelected="False"
+		/>
+	</Design.DataContext>
+
+	<Button
+		IsEnabled="{Binding IsEnabled, DataType={x:Type vm:TabNavigationItemViewModel}}"
+		Command="{ReflectionBinding $parent[c:TabNavigationItemView]((vm:TabNavigationItemViewModel)DataContext).Execute}"
+		CornerRadius="30 30"
+		BorderBrush="Transparent"
+		Background="Transparent"
+	>
+		<Button.Styles>
+			<Style Selector="Button:pointerover">
+				<Setter Property="BorderThickness" Value="0" />
+			</Style>
+		</Button.Styles>
+
+		<StackPanel 
+			VerticalAlignment="Center" 
+			Orientation="Vertical" 
+			Spacing="5"
+		>
+			<md-icons:MaterialIcon
+				Kind="{Binding TabIconId, DataType={x:Type vm:TabNavigationItemViewModel}}"
+				Width="{Binding $parent[c:TabNavigationItemView].TabIconSize}"
+				Height="{Binding $parent[c:TabNavigationItemView].TabIconSize}"
+			/>
+			<TextBlock
+				Name="tabNameLabel"
+				HorizontalAlignment="Center"
+				Text="{Binding TabName, DataType={x:Type vm:TabNavigationItemViewModel}}"
+				FontFamily="Roboto"
+				FontWeight="{Binding $parent[c:TabNavigationItemView].TabNameLabelWeight}"
+				FontSize="12"
+			/>
+		</StackPanel>
+	</Button>
+</UserControl>

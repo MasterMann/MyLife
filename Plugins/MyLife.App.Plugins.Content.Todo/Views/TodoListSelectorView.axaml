@@ -1,0 +1,38 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             
+			 xmlns:vm="clr-namespace:MyLife.App.Plugins.Content.Todo.ViewModels"
+			 
+			 mc:Ignorable="d" 
+			 d:DesignWidth="400" d:DesignHeight="100"
+			 
+             x:Class="MyLife.App.Plugins.Content.Todo.Views.TodoListSelectorView">
+
+	<Design.DataContext>
+		<vm:TodoListSelectorViewModel>
+			
+		</vm:TodoListSelectorViewModel>
+	</Design.DataContext>
+	
+	<Border
+		MaxHeight="50"
+	>
+		<ComboBox
+			SelectedIndex="0"
+			MaxDropDownHeight="250"
+			CornerRadius="10 10"
+			ItemsSource="{Binding Lists, DataType={x:Type vm:TodoListSelectorViewModel}}"
+			SelectedValue="{Binding SelectedListId, DataType={x:Type vm:TodoListSelectorViewModel}}"
+			SelectedValueBinding="{Binding Id, DataType={x:Type vm:TodoListSelectorItem}}"
+		>
+			<ComboBox.ItemTemplate>
+				<DataTemplate>
+					<ComboBoxItem Content="{Binding DisplayName, DataType={x:Type vm:TodoListSelectorItem}}" />
+				</DataTemplate>
+			</ComboBox.ItemTemplate>
+		</ComboBox>
+	</Border>
+	
+</UserControl>
