@@ -2,7 +2,7 @@
 
 using Avalonia;
 
-using MyLife.App.Common;
+using MyLife.App.Shared;
 
 
 namespace MyLife.App.Desktop;

@@ -1,7 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 
 using MyLife.App.Android.UI.Mobile.ViewModels.Content;
-using MyLife.App.Common.ViewModels;
+using MyLife.App.Shared.ViewModels;
 using MyLife.App.Android.UI.Mobile.ViewModels.Components.TabHeader;
 using System.ComponentModel;
 

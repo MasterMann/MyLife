@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Browser;
 
-using MyLife.App.Common;
+using MyLife.App.Shared;
 
 
 [assembly: SupportedOSPlatform("browser")]

@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 
-using MyLife.App.Common.ViewModels;
-using MyLife.App.Common.ViewModels.Components.Buttons;
+using MyLife.App.Shared.ViewModels;
+using MyLife.App.Shared.ViewModels.Components.Buttons;
 
 
 namespace MyLife.App.Android.UI.Watch.ViewModels;

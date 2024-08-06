@@ -2,7 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 
 using MyLife.App.Android.UI.Mobile.Models.Containers.Tabs;
-using MyLife.App.Common.ViewModels;
+using MyLife.App.Shared.ViewModels;
 
 
 namespace MyLife.App.Android.UI.Mobile.ViewModels.Components.TabHeader;

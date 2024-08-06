@@ -2,8 +2,8 @@
 
 using Avalonia.Data.Converters;
 using MyLife.App.Android.UI.Mobile.ViewModels.Components.TabHeader;
-using MyLife.App.Common.ViewModels.Components.Buttons;
-using MyLife.App.Common.Models.UI.Components.Buttons;
+using MyLife.App.Shared.ViewModels.Components.Buttons;
+using MyLife.App.Shared.Models.UI.Components.Buttons;
 using CommunityToolkit.Mvvm.Input;
 
 

@@ -13,7 +13,7 @@
 			 xmlns:vm="clr-namespace:MyLife.App.Android.UI.Mobile.ViewModels"
  
 			 mc:Ignorable="d"
-			 d:DesignWidth="400" d:DesignHeight="600"
+			 d:DesignWidth="500" d:DesignHeight="750"
              
 			 x:Class="MyLife.App.Android.UI.Mobile.Views.MobileMainView">
     

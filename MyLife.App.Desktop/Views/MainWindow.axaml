@@ -3,7 +3,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         
-		xmlns:views-common="clr-namespace:MyLife.App.Common.Views;assembly=MyLife.App.Common"
+		xmlns:views-common="clr-namespace:MyLife.App.Shared.Views;assembly=MyLife.App.Shared"
 		xmlns:views-mobile="clr-namespace:MyLife.App.Android.UI.Mobile.Views;assembly=MyLife.App.Android.UI.Mobile"
 		xmlns:views-desktop="clr-namespace:MyLife.App.Desktop.Views"
 		
@@ -16,7 +16,7 @@
 		d:DesignWidth="400" d:DesignHeight="600"
         
 		x:Class="MyLife.App.Desktop.Views.MainWindow"
-        Icon="avares://MyLife.App.Common/Assets/avalonia-logo.ico"
+        Icon="avares://MyLife.App.Shared/Assets/avalonia-logo.ico"
         Title="My Life"
 		
 		Width="400" Height="600">

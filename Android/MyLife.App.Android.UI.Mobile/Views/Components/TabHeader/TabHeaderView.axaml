@@ -3,13 +3,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              
-			 xmlns:c-buttons="clr-namespace:MyLife.App.Common.Views.Components.Buttons;assembly=MyLife.App.Common"
+			 xmlns:c-buttons="clr-namespace:MyLife.App.Shared.Views.Components.Buttons;assembly=MyLife.App.Shared"
 			 
 			 xmlns:vm="clr-namespace:MyLife.App.Android.UI.Mobile.ViewModels.Components.TabHeader"
 			 xmlns:conv="clr-namespace:MyLife.App.Android.UI.Mobile.Utilities.Converters.Components.TabHeader"
 			 
 			 mc:Ignorable="d"
-			 d:DesignWidth="400" d:DesignHeight="100"
+			 d:DesignWidth="500" d:DesignHeight="100"
              
 			 x:Class="MyLife.App.Android.UI.Mobile.Views.Components.TabHeader.TabHeaderView">
 
@@ -35,25 +35,26 @@
 	
 	<Border
 		BoxShadow="5 0 5 3 LightGray"
-		Height="50"
+		Height="65"
 	>
 		<Grid
 			RowDefinitions="*"
 			ColumnDefinitions="Auto, *, Auto"
-			Margin="10, 5, 5, 5"
+			Margin="10, 5, 10, 5"
 		>
 			<TextBlock
 				Grid.Column="0"
 				Classes="Medium"
 				Text="{Binding TitleLabel, DataType={x:Type vm:TabHeaderViewModel}}"
-				Margin="10, 0, 15, 0"
+				Margin="10, 0, 10, 0"
 				VerticalAlignment="Center"
 				FontFamily="Roboto"
-				FontSize="19"
+				FontSize="23"
 				FontWeight="Medium"
 			/>
 			<ContentControl
 				Grid.Column="1"
+				Margin="10, 0, 15, 0"
 				Content="{Binding TitleContent, DataType={x:Type vm:TabHeaderViewModel}}"
 				>
 				<ContentControl.ContentTemplate>
@@ -67,8 +68,8 @@
 				<ItemsControl.ItemTemplate>
 					<DataTemplate DataType="{x:Type vm:TabHeaderActionViewModel}">
 						<c-buttons:IconButton
-							Width="55"
-							Height="55"
+							Width="50"
+							Height="50"
 							DataContext="{ReflectionBinding, Converter={StaticResource headerActionButtonVMConverter}}"
 						/>
 					</DataTemplate>

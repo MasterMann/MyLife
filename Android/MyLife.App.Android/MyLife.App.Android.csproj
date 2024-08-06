@@ -1,16 +1,27 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	
   <PropertyGroup>
-    <TargetFramework>net8.0-android34.0</TargetFramework>
+	  <OutputType>Exe</OutputType>
+	  <TargetFramework>net8.0-android</TargetFramework>
     <Nullable>enable</Nullable>
+	  <ApplicationVersion>1</ApplicationVersion>
+	  <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
     <AndroidPackageFormat>apk</AndroidPackageFormat>
     <AndroidEnableProfiledAot>False</AndroidEnableProfiledAot>
-	  <UseMaui>true</UseMaui>
+	<UseMaui>true</UseMaui>
+	<AvaloniaUseCompiledBindingsByDefault>True</AvaloniaUseCompiledBindingsByDefault>
+	  <SupportedOSPlatformVersion>33.0</SupportedOSPlatformVersion>
   </PropertyGroup>
 	
-  <PropertyGroup Label="Avalonia">
-    <AvaloniaUseCompiledBindingsByDefault>True</AvaloniaUseCompiledBindingsByDefault>
-    <SupportedOSPlatformVersion>33.0</SupportedOSPlatformVersion>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <AndroidEnableMultiDex>True</AndroidEnableMultiDex>
+  </PropertyGroup>
+	
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <TrimMode>copyused</TrimMode>
+    <AndroidLinkTool>r8</AndroidLinkTool>
+    <AndroidEnableMultiDex>True</AndroidEnableMultiDex>
+    <PublishTrimmed>True</PublishTrimmed>
   </PropertyGroup>
 	
   <ItemGroup>
@@ -25,7 +36,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\MyLife.App.Common\MyLife.App.Common.csproj" />
+    <ProjectReference Include="..\..\MyLife.App.Shared\MyLife.App.Shared.csproj" />
     <ProjectReference Include="..\MyLife.App.Android.UI.Mobile\MyLife.App.Android.UI.Mobile.csproj" />
     <ProjectReference Include="..\MyLife.App.Android.UI.Watch\MyLife.App.Android.UI.Watch.csproj" />
   </ItemGroup>

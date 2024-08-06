@@ -1,6 +1,6 @@
 ﻿using Avalonia.Controls;
 
-using MyLife.App.Common;
+using MyLife.App.Shared;
 using MyLife.App.Desktop.ViewModels;
 using MyLife.App.Desktop.Views;
 

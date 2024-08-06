@@ -2,7 +2,7 @@
 
 using Microsoft.Maui.Devices;
 
-using MyLife.App.Common;
+using MyLife.App.Shared;
 using MyLife.App.Android.UI.Watch.Views;
 using MyLife.App.Android.UI.Mobile.Views;
 using MyLife.App.Android.UI.Mobile.ViewModels;

@@ -6,7 +6,7 @@
 			 xmlns:vm="clr-namespace:MyLife.App.Android.UI.Mobile.ViewModels.Content.Todo"
 			 xmlns:c="clr-namespace:MyLife.App.Android.UI.Mobile.Views.Content.Todo"
 			 
-			 xmlns:c-buttons="clr-namespace:MyLife.App.Common.Views.Components.Buttons;assembly=MyLife.App.Common"
+			 xmlns:c-buttons="clr-namespace:MyLife.App.Shared.Views.Components.Buttons;assembly=MyLife.App.Shared"
 			 xmlns:md-icons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
 			 
              mc:Ignorable="d" 

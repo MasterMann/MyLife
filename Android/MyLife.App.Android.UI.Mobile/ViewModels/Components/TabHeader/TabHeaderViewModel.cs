@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 
 using MyLife.App.Android.UI.Mobile.ViewModels.Content;
-using MyLife.App.Common.ViewModels;
+using MyLife.App.Shared.ViewModels;
 using MyLife.App.Android.UI.Mobile.Models.Containers.Tabs;
 
 

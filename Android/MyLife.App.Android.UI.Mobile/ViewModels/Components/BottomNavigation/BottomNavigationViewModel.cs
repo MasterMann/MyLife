@@ -4,7 +4,7 @@ using System.Collections.Specialized;
 using CommunityToolkit.Mvvm.ComponentModel;
 
 using MyLife.App.Android.UI.Mobile.ViewModels.Components.Containers.Tabs;
-using MyLife.App.Common.ViewModels;
+using MyLife.App.Shared.ViewModels;
 
 
 namespace MyLife.App.Android.UI.Mobile.ViewModels.Components.BottomNavigation;

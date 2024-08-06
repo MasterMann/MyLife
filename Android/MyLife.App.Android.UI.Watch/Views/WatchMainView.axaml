@@ -5,8 +5,8 @@
              
 			 xmlns:vm="clr-namespace:MyLife.App.Android.UI.Watch.ViewModels"
 			 
-			 xmlns:c-buttons="clr-namespace:MyLife.App.Common.Views.Components.Buttons;assembly=MyLife.App.Common"
-			 xmlns:vm-c-buttons="clr-namespace:MyLife.App.Common.ViewModels.Components.Buttons;assembly=MyLife.App.Common"
+			 xmlns:c-buttons="clr-namespace:MyLife.App.Shared.Views.Components.Buttons;assembly=MyLife.App.Shared"
+			 xmlns:vm-c-buttons="clr-namespace:MyLife.App.Shared.ViewModels.Components.Buttons;assembly=MyLife.App.Shared"
 			 
 			 mc:Ignorable="d"
 			 d:DesignWidth="200" d:DesignHeight="200"
