@@ -1,22 +1,21 @@
-﻿using System;
+﻿using MyLife.App.Plugins.Core.Models.Features;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
+using System;
 
-using MyLife.App.Plugins.Core.Models.Features;
 using MyLife.App.Plugins.Core.Services;
 using MyLife.App.Plugins.Core.Services.Features;
+using System.Linq;
+
+namespace MyLife.App.Shared.Services.Features;
 
 
-namespace MyLife.App.Desktop.Services.Features;
-
-
-internal class DesktopFeaturePluginManager: IFeaturePluginManager
+public class BaseFeaturePluginManager: IFeaturePluginManager
 {
 	public IReadOnlyList<IFeaturePlugin> LoadedPlugins => this._loadedPlugins;
 	List<IFeaturePlugin> _loadedPlugins = new();
 
-	public DesktopFeaturePluginManager()
+	public BaseFeaturePluginManager()
 	{
 		var dependencies = Assembly.GetExecutingAssembly().GetReferencedAssemblies()
 			.Where(x => x.Name!.StartsWith("MyLife.App"));
@@ -25,7 +24,8 @@ internal class DesktopFeaturePluginManager: IFeaturePluginManager
 		foreach (var dependency in dependencies)
 		{
 			var assembly = Assembly.Load(dependency);
-			if (assembly != null) loadedAssemblies.Add(assembly);
+			if (assembly != null)
+				loadedAssemblies.Add(assembly);
 		}
 
 		this.Initialize(loadedAssemblies);
@@ -35,7 +35,7 @@ internal class DesktopFeaturePluginManager: IFeaturePluginManager
 	{
 		foreach (var assembly in loadedAssemblies)
 		{
-			var pluginTypes = assembly.GetExportedTypes().Where(type 
+			var pluginTypes = assembly.GetExportedTypes().Where(type
 				=> typeof(IFeaturePlugin).IsAssignableFrom(type) && !type.IsAbstract
 			);
 			if (pluginTypes.Count() > 0)
@@ -64,8 +64,8 @@ internal class DesktopFeaturePluginManager: IFeaturePluginManager
 		};
 
 		var plugin = this.LoadedPlugins.FirstOrDefault(x => x.FeatureInfo.FeatureId.Equals(fullFeatureId));
-		return (plugin != null)
-			? (TFeature)plugin 
+		return plugin != null
+			? (TFeature)plugin
 			: default;
 	}
 }

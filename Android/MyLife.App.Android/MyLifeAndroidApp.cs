@@ -9,7 +9,7 @@ using MyLife.App.Android.UI.Mobile.ViewModels;
 using MyLife.App.Android.UI.Watch.ViewModels;
 using MyLife.App.Shared.Models.UI.Containers.Tabs;
 using MyLife.App.Plugins.Content.Todo.ViewModels;
-using MyLife.App.Android.Services.Features;
+using MyLife.App.Shared.Services.Features;
 
 
 namespace MyLife.App.Android;
@@ -23,7 +23,7 @@ public class MyLifeAndroidApp: MyLifeApp
 	{
 		base.InitPlatform();
 
-		PluginManager = new AndroidFeaturePluginManager();
+		PluginManager = new BaseFeaturePluginManager();
 
 		this.IsWatchDevice = DeviceInfo.Idiom == DeviceIdiom.Watch;
 	}

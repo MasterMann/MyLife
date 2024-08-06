@@ -40,4 +40,8 @@
     <ProjectReference Include="..\MyLife.App.Android.UI.Mobile\MyLife.App.Android.UI.Mobile.csproj" />
     <ProjectReference Include="..\MyLife.App.Android.UI.Watch\MyLife.App.Android.UI.Watch.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Services\Features\" />
+  </ItemGroup>
 </Project>

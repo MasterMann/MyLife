@@ -3,7 +3,7 @@
 using MyLife.App.Shared;
 using MyLife.App.Desktop.ViewModels;
 using MyLife.App.Desktop.Views;
-using MyLife.App.Desktop.Services.Features;
+using MyLife.App.Shared.Services.Features;
 
 
 namespace MyLife.App.Desktop;
@@ -20,6 +20,6 @@ internal class MyLifeDesktopApp: MyLifeApp
 	{
 		base.InitPlatform();
 
-		PluginManager = new DesktopFeaturePluginManager();
+		PluginManager = new BaseFeaturePluginManager();
 	}
 }
