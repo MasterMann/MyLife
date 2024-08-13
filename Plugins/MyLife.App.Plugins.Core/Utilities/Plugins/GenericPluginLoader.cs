@@ -3,12 +3,14 @@
 // Original from: https://makolyte.com/csharp-generic-plugin-loader/
 // ==================================
 
+using System.Reflection;
+
 namespace MyLife.App.Plugins.Core.Utilities.Plugins;
 
 
 public class GenericPluginLoader<T> where T : class
 {
-	readonly List<GenericAssemblyLoadContext<T>> _loadContexts = new();
+	//readonly List<PluginAssemblyLoadContext<T>> _loadContexts = new();
 
 	public List<T> LoadAll(string pluginPath, string filter = "*.dll", params object[] constructorArgs)
 	{
@@ -28,11 +30,13 @@ public class GenericPluginLoader<T> where T : class
 	}
 	public IEnumerable<T> Load(string pluginPath, params object[] constructorArgs)
 	{
-		var loadContext = new GenericAssemblyLoadContext<T>(pluginPath);
+		//var pluginName = Path.GetFileNameWithoutExtension(pluginPath);
 
-		this._loadContexts.Add(loadContext);
+		//var loadContext = new PluginAssemblyLoadContext<T>(pluginName, pluginPath);
+		//this._loadContexts.Add(loadContext);
 
-		var assembly = loadContext.LoadFromAssemblyPath(pluginPath);
+		//var assembly = loadContext.LoadFromAssemblyPath(pluginPath);
+		var assembly = Assembly.LoadFrom(pluginPath);
 
 		var loadedPlugins = new List<T>();
 
@@ -52,9 +56,9 @@ public class GenericPluginLoader<T> where T : class
 	}
 	public void UnloadAll()
 	{
-		foreach (var loadContext in this._loadContexts)
-		{
-			loadContext.Unload();
-		}
+		//foreach (var loadContext in this._loadContexts)
+		//{
+		//	loadContext.Unload();
+		//}
 	}
 }

@@ -10,18 +10,20 @@ using System.Runtime.Loader;
 namespace MyLife.App.Plugins.Core.Utilities.Plugins;
 
 
-public class GenericAssemblyLoadContext<T>: AssemblyLoadContext where T : class
+public class PluginAssemblyLoadContext<T>: AssemblyLoadContext where T : class
 {
 	AssemblyDependencyResolver _resolver;
+	//PluginAssemblyDependencyResolver _resolver;
 	HashSet<string> _skipAssemblyLoadList;
 
-	public GenericAssemblyLoadContext(string pluginPath) : base(isCollectible: true)
+	public PluginAssemblyLoadContext(string contextName, string pluginPath) : base(contextName, isCollectible: true)
 	{
 		var pluginInterfaceAssembly = typeof(T).Assembly.FullName!;
-		_skipAssemblyLoadList = this.GetReferencedAssemblyFullNames(pluginInterfaceAssembly);
+		this._skipAssemblyLoadList = this.GetReferencedAssemblyFullNames(pluginInterfaceAssembly);
 		this._skipAssemblyLoadList.Add(pluginInterfaceAssembly);
 
 		this._resolver = new AssemblyDependencyResolver(pluginPath);
+		//this._resolver = new PluginAssemblyDependencyResolver(pluginPath);
 	}
 	HashSet<string> GetReferencedAssemblyFullNames(string ReferencedBy)
 	{
@@ -35,7 +37,7 @@ public class GenericAssemblyLoadContext<T>: AssemblyLoadContext where T : class
 	{
 		//Do not load the Plugin Interface DLL into the adapter's context
 		//otherwise IsAssignableFrom is false. 
-		if (_skipAssemblyLoadList.Contains(assemblyName.FullName))
+		if (this._skipAssemblyLoadList.Contains(assemblyName.FullName))
 		{
 			return null;
 		}
