@@ -17,7 +17,6 @@
 	<ItemGroup>
 		<ProjectReference Include="..\..\MyLife.App.Shared.UI\MyLife.App.Shared.UI.csproj" />
 		<ProjectReference Include="..\..\MyLife.App.Shared\MyLife.App.Shared.csproj" />
-		<ProjectReference Include="..\..\Plugins\MyLife.App.Plugins.Content.Todo\MyLife.App.Plugins.Content.Todo.csproj" />
 		<ProjectReference Include="..\..\Plugins\MyLife.App.Plugins.Core\MyLife.App.Plugins.Core.csproj" />
 	</ItemGroup>
 
@@ -40,7 +39,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Models\Content\Todo\" />
+	  <Folder Include="Models\" />
 	  <Folder Include="Services\Features\Content\" />
 	  <Folder Include="Views\Content\" />
 	</ItemGroup>

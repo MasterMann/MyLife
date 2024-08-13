@@ -1,8 +1,12 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 
 using Avalonia;
 
 using MyLife.App.Shared;
+
+
+[assembly: InternalsVisibleTo("MyLife.App.Shared.UI.DesignerStub")]
 
 
 namespace MyLife.App.Desktop;

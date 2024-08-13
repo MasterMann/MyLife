@@ -1,5 +1,6 @@
 ﻿using Android.App;
 using Android.Content.PM;
+using Android.OS;
 
 using Avalonia;
 using Avalonia.Android;
@@ -21,4 +22,15 @@ public class MobileMainActivity : AvaloniaMainActivity<MyLifeAndroidApp>
 	    => base.CustomizeAppBuilder(builder)
 		    .WithInterFont()
 		    .UseMaui<MyLifeAndroidMauiApp>(this);
+
+	protected override void OnCreate(Bundle? bundle)
+	{
+		var assets = this.Assets;
+		if (assets == null)
+			throw new System.Exception("Unable to retrieve AssetManager.");
+
+		MyLifeAndroidApp.SetAssetManager(assets);
+
+		base.OnCreate(bundle);
+	}
 }

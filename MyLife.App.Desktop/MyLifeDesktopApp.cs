@@ -13,7 +13,7 @@ internal class MyLifeDesktopApp: MyLifeApp
 {
 	protected override Window GetMainWindow() => new MainWindow()
 	{
-		DataContext = new MainWindowViewModel()
+		DataContext = new MainWindowViewModel(PluginManager)
 	};
 
 	protected override void InitPlatform()

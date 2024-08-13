@@ -23,6 +23,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyLife.App.Shared", "MyLife
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{03AEBEFF-4379-42AD-8F7B-387A8E93804D}"
 	ProjectSection(SolutionItems) = preProject
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		Directory.Build.props = Directory.Build.props
 		LICENSE.txt = LICENSE.txt
 		README.md = README.md
 	EndProjectSection
@@ -30,6 +33,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyLife.App.Shared.UI", "MyLife.App.Shared.UI\MyLife.App.Shared.UI.csproj", "{32F4E207-D419-4E99-A1D4-67DCC46B0AC3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyLife.App.Plugins.Content.Todo", "Plugins\MyLife.App.Plugins.Content.Todo\MyLife.App.Plugins.Content.Todo.csproj", "{68B988FF-0087-4F43-B6ED-D44D75950EC2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyLife.App.Shared.UI.DesignerStub", "MyLife.App.Shared.UI.DesignerStub\MyLife.App.Shared.UI.DesignerStub.csproj", "{A9C56D3A-2E03-4A17-97EE-EE175D0245FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +80,10 @@ Global
 		{68B988FF-0087-4F43-B6ED-D44D75950EC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68B988FF-0087-4F43-B6ED-D44D75950EC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68B988FF-0087-4F43-B6ED-D44D75950EC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9C56D3A-2E03-4A17-97EE-EE175D0245FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9C56D3A-2E03-4A17-97EE-EE175D0245FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9C56D3A-2E03-4A17-97EE-EE175D0245FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9C56D3A-2E03-4A17-97EE-EE175D0245FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

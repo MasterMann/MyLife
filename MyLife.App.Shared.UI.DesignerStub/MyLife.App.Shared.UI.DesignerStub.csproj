@@ -6,15 +6,11 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
-    <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
+	
   <PropertyGroup Label="Avalonia">
     <AvaloniaUseCompiledBindingsByDefault>True</AvaloniaUseCompiledBindingsByDefault>
-    <ApplicationIcon>avalonia-logo.ico</ApplicationIcon>
   </PropertyGroup>
-  <ItemGroup>
-    <Content Include="avalonia-logo.ico" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Avalonia.Desktop" Version="$(AvaloniaVersion)" />
@@ -22,17 +18,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Android\MyLife.App.Android.UI.Mobile\MyLife.App.Android.UI.Mobile.csproj" />
+    <ProjectReference Include="..\Android\MyLife.App.Android.UI.Watch\MyLife.App.Android.UI.Watch.csproj" />
+    <ProjectReference Include="..\MyLife.App.Desktop\MyLife.App.Desktop.csproj" />
     <ProjectReference Include="..\MyLife.App.Shared.UI\MyLife.App.Shared.UI.csproj" />
     <ProjectReference Include="..\MyLife.App.Shared\MyLife.App.Shared.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="Views\MainWindow.axaml.cs">
-      <DependentUpon>%(Filename)</DependentUpon>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Services\Features\" />
+    <ProjectReference Include="..\Plugins\MyLife.App.Plugins.Content.Todo\MyLife.App.Plugins.Content.Todo.csproj" />
   </ItemGroup>
 </Project>

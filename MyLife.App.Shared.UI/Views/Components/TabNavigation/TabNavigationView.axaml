@@ -25,19 +25,7 @@
 					TabName="Test tab"
 				>
 					<vm-tabs:TabContainerViewModel.Content>
-						<vm-content-todo:TodoTabContentViewModel>
-							<vm-content-todo:TodoTabContentViewModel.Items>
-								<vm-content-todo:TodoItemViewModel
-									Text="Test item 1"
-								/>
-								<vm-content-todo:TodoItemViewModel
-									Text="Test item 2"
-								/>
-								<vm-content-todo:TodoItemViewModel
-									Text="Test item 3"
-								/>
-							</vm-content-todo:TodoTabContentViewModel.Items>
-						</vm-content-todo:TodoTabContentViewModel>
+						
 					</vm-tabs:TabContainerViewModel.Content>
 				</vm-tabs:TabContainerViewModel>
 			</vm:TabNavigationViewModel.Tabs>

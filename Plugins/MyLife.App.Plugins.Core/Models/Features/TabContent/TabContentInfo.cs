@@ -12,4 +12,5 @@ public record TabContentInfo
 {
 	public string TabId { get; init; } = Guid.NewGuid().ToString();
 	public string TabName { get; init; } = "[Unknown]";
+	public string TabIconId { get; init; } = string.Empty;
 }

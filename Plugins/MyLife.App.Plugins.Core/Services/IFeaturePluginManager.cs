@@ -11,9 +11,8 @@ public interface IFeaturePluginManager
 {
 	public IReadOnlyList<IFeaturePlugin> LoadedPlugins { get; }
 
-	public void Initialize(IEnumerable<Assembly> loadedAssemblies);
+	public void Initialize(IEnumerable<string> pluginFilePaths);
 	public void Shutdown();
 
-	public TFeature? GetFeature<TFeature>(FeatureType type, string featureId)
-		where TFeature: IFeaturePlugin;
+	public IFeaturePlugin? GetFeature(FeatureType type, string featureId);
 }

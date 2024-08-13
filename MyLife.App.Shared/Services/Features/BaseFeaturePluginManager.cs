@@ -6,6 +6,9 @@ using System;
 using MyLife.App.Plugins.Core.Services;
 using MyLife.App.Plugins.Core.Services.Features;
 using System.Linq;
+using System.IO;
+using MyLife.App.Plugins.Core.Utilities.Plugins;
+using MyLife.App.Shared.Utilities;
 
 namespace MyLife.App.Shared.Services.Features;
 
@@ -17,36 +20,43 @@ public class BaseFeaturePluginManager: IFeaturePluginManager
 
 	public BaseFeaturePluginManager()
 	{
-		var dependencies = Assembly.GetExecutingAssembly().GetReferencedAssemblies()
-			.Where(x => x.Name!.StartsWith("MyLife.App"));
+		var rootExecPath = AppDomain.CurrentDomain.BaseDirectory;
+		if (rootExecPath == null) throw new Exception("Invalid root executable path.");
 
-		var loadedAssemblies = new List<Assembly>();
-		foreach (var dependency in dependencies)
+		var pluginsRootPath = Path.Combine(rootExecPath, "plugins");
+		if (!Directory.Exists(pluginsRootPath)) return;
+
+		var pluginFiles = new List<string>();
+		foreach (var pluginDirFullName in Directory.EnumerateDirectories(pluginsRootPath))
 		{
-			var assembly = Assembly.Load(dependency);
-			if (assembly != null)
-				loadedAssemblies.Add(assembly);
+			var pluginDirName = pluginDirFullName.SplitLast(Path.DirectorySeparatorChar);
+
+			var foundPluginFiles = Directory.EnumerateFiles(pluginDirFullName)
+				.Where(filePath => 
+					Path.GetFileNameWithoutExtension(filePath).Equals(pluginDirName) 
+					&& filePath.EndsWith(".dll")
+				);
+
+			pluginFiles.AddRange(foundPluginFiles);
 		}
 
-		this.Initialize(loadedAssemblies);
+		this.Initialize(pluginFiles);
 	}
 
-	public void Initialize(IEnumerable<Assembly> loadedAssemblies)
+	public void Initialize(IEnumerable<string> pluginFilePaths)
 	{
-		foreach (var assembly in loadedAssemblies)
+		var pluginLoader = new GenericPluginLoader<IFeaturePlugin>();
+	
+		foreach(var pluginFile in pluginFilePaths)
 		{
-			var pluginTypes = assembly.GetExportedTypes().Where(type
-				=> typeof(IFeaturePlugin).IsAssignableFrom(type) && !type.IsAbstract
-			);
-			if (pluginTypes.Count() > 0)
+			var loadedFeaturePlugins = pluginLoader.Load(pluginFile);
+
+			foreach (var loadedPlugin in loadedFeaturePlugins)
 			{
-				foreach (var pluginType in pluginTypes)
-				{
-					var pluginInstance = (IFeaturePlugin)Activator.CreateInstance(pluginType)!;
-					pluginInstance.Initialize();
-					this._loadedPlugins.Add(pluginInstance);
-				}
+				loadedPlugin.Initialize();
 			}
+
+			this._loadedPlugins.AddRange(loadedFeaturePlugins);
 		}
 	}
 	public void Shutdown()
@@ -54,8 +64,7 @@ public class BaseFeaturePluginManager: IFeaturePluginManager
 
 	}
 
-	public TFeature? GetFeature<TFeature>(FeatureType type, string featureId)
-		where TFeature : IFeaturePlugin
+	public IFeaturePlugin? GetFeature(FeatureType type, string featureId)
 	{
 		var fullFeatureId = type switch
 		{
@@ -64,8 +73,6 @@ public class BaseFeaturePluginManager: IFeaturePluginManager
 		};
 
 		var plugin = this.LoadedPlugins.FirstOrDefault(x => x.FeatureInfo.FeatureId.Equals(fullFeatureId));
-		return plugin != null
-			? (TFeature)plugin
-			: default;
+		return plugin ?? default;
 	}
 }

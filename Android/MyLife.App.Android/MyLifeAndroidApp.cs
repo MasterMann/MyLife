@@ -7,9 +7,10 @@ using MyLife.App.Android.UI.Watch.Views;
 using MyLife.App.Android.UI.Mobile.Views;
 using MyLife.App.Android.UI.Mobile.ViewModels;
 using MyLife.App.Android.UI.Watch.ViewModels;
-using MyLife.App.Shared.Models.UI.Containers.Tabs;
-using MyLife.App.Plugins.Content.Todo.ViewModels;
 using MyLife.App.Shared.Services.Features;
+using Android.Content.Res;
+using System.IO;
+using Microsoft.Maui.Storage;
 
 
 namespace MyLife.App.Android;
@@ -17,11 +18,43 @@ namespace MyLife.App.Android;
 
 public class MyLifeAndroidApp: MyLifeApp
 {
+	protected static AssetManager AssetManager { get; private set; }
 	protected bool IsWatchDevice { get; private set; }
+
+	public static void SetAssetManager(AssetManager assetManager) => AssetManager = assetManager;
 
 	protected override void InitPlatform()
 	{
 		base.InitPlatform();
+
+		var pluginsStorageRootPath = Path.Combine(FileSystem.AppDataDirectory, "plugins");
+		if (!Directory.Exists(pluginsStorageRootPath))
+		{
+			Directory.CreateDirectory(pluginsStorageRootPath);
+		}
+
+		foreach (var pluginDirName in AssetManager.List("plugins") ?? [])
+		{
+			var pluginDirPath = Path.Combine("plugins", pluginDirName);
+			var pluginDirStoragePath = Path.Combine(pluginsStorageRootPath, pluginDirName);
+			if (!Directory.Exists(pluginDirStoragePath))
+			{
+				Directory.CreateDirectory(pluginDirStoragePath);
+
+				foreach (var pluginFile in AssetManager.List(pluginDirPath) ?? [])
+				{
+					var pluginFilePath = Path.Combine(pluginDirPath, pluginFile);
+					var pluginFileStoragePath = Path.Combine(pluginDirStoragePath, pluginFile);
+
+					if (!File.Exists(pluginFileStoragePath))
+					{
+						using var sr = new StreamReader(AssetManager.Open(pluginFilePath));
+						using var sw = new StreamWriter(pluginFileStoragePath);
+						sw.Write(sr.ReadToEnd());
+					}
+				}
+			}
+		}
 
 		PluginManager = new BaseFeaturePluginManager();
 
@@ -43,45 +76,7 @@ public class MyLifeAndroidApp: MyLifeApp
 	};
 	protected Control GetInitialMobileView() => new MobileMainView
 	{
-		DataContext = new MobileMainViewModel()
-		{
-			Navigation = new()
-			{
-				NavItems =
-				[
-					new(){ TabId = "todo", TabIconId = "FormatListChecks", TabName = "TODO" },
-					new(){ TabId = "notes", TabIconId = "Note", TabName = "Notes" },
-					new(){ TabId = "home", TabIconId = "Home", TabName = "Home" },
-					new(){ TabId = "services", TabIconId = "ViewGridPlus", TabName = "Services" },
-					new(){ TabId = "spending", TabIconId = "Abacus", TabName = "Spending" }
-				],
-				Tabs =
-				[
-					new()
-					{
-						TabId = "todo",
-						TabName = "TODO",
-						Content = new TodoTabContentViewModel(),
-						HeaderConfig = new()
-						{
-							TitleLabel = "TODO",
-							TitleContent = new TodoListSelectorViewModel(),
-							Actions =
-							[
-								new()
-								{
-									ActionId = "sync",
-									DisplayName = "Sync to server",
-									IconId = "CloudArrowUp",
-									IsEnabled = true,
-									Priority = TabActionPriority.DEFAULT
-								}
-							]
-						}
-					}
-				]
-			}
-		}
+		DataContext = new MobileMainViewModel(PluginManager)
 	};
 
 	protected override Control GetInitialView()

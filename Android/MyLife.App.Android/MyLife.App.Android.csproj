@@ -10,7 +10,7 @@
     <AndroidEnableProfiledAot>False</AndroidEnableProfiledAot>
 	<UseMaui>true</UseMaui>
 	<AvaloniaUseCompiledBindingsByDefault>True</AvaloniaUseCompiledBindingsByDefault>
-	  <SupportedOSPlatformVersion>33.0</SupportedOSPlatformVersion>
+	<SupportedOSPlatformVersion>33.0</SupportedOSPlatformVersion>
   </PropertyGroup>
 	
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -42,6 +42,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Assets\plugins\" />
     <Folder Include="Services\Features\" />
+
+	<AndroidAsset Include="Assets\plugins\**\*" />
   </ItemGroup>
 </Project>

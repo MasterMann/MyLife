@@ -12,7 +12,8 @@ public class TodoContentTabFeature: ITabContentFeaturePlugin
 	public TabContentInfo TabInfo => new()
 	{
 		TabId = "todo",
-		TabName = "TODO"
+		TabName = "TODO",
+		TabIconId = "FormatListChecks"
 	};
 
 	public void Initialize() { }
