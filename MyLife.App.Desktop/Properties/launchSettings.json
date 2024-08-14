@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "MyLife.App.Desktop": {
+      "commandName": "Project",
+      "nativeDebugging": false,
+      "hotReloadEnabled": false
+    }
+  }
+}

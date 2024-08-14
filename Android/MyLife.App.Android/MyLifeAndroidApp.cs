@@ -48,9 +48,13 @@ public class MyLifeAndroidApp: MyLifeApp
 
 					if (!File.Exists(pluginFileStoragePath))
 					{
-						using var sr = new StreamReader(AssetManager.Open(pluginFilePath));
-						using var sw = new StreamWriter(pluginFileStoragePath);
-						sw.Write(sr.ReadToEnd());
+						var file = AssetManager.Open(pluginFilePath);
+
+						using var storageStream = File.OpenWrite(pluginFileStoragePath);
+						file.CopyTo(storageStream);
+						storageStream.Flush();
+						storageStream.Close();
+						file.Close();
 					}
 				}
 			}

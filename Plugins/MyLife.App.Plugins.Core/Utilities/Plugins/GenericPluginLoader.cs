@@ -4,6 +4,7 @@
 // ==================================
 
 using System.Reflection;
+using System.Reflection.PortableExecutable;
 
 namespace MyLife.App.Plugins.Core.Utilities.Plugins;
 
@@ -36,6 +37,17 @@ public class GenericPluginLoader<T> where T : class
 		//this._loadContexts.Add(loadContext);
 
 		//var assembly = loadContext.LoadFromAssemblyPath(pluginPath);
+
+		//using var stream = File.OpenRead(pluginPath);
+		//using var reader = new PEReader(stream);
+		//var hasMetadata = reader.HasMetadata;
+		//var arch = reader.PEHeaders.PEHeader?.Magic;
+		//var targetMachine = reader.PEHeaders.CoffHeader.Machine;
+		//var clrHeader = reader.PEHeaders.CorHeader;
+		//var requires32Bit = clrHeader?.Flags.HasFlag(CorFlags.Requires32Bit);
+		//var hasIL = clrHeader?.Flags.HasFlag(CorFlags.ILOnly);
+		//var isIlLibrary = clrHeader?.Flags.HasFlag(CorFlags.ILLibrary);
+
 		var assembly = Assembly.LoadFrom(pluginPath);
 
 		var loadedPlugins = new List<T>();

@@ -12,8 +12,8 @@ namespace MyLife.App.Plugins.Core.Utilities.Plugins;
 
 public class PluginAssemblyLoadContext<T>: AssemblyLoadContext where T : class
 {
-	AssemblyDependencyResolver _resolver;
-	//PluginAssemblyDependencyResolver _resolver;
+	//AssemblyDependencyResolver _resolver;
+	PluginAssemblyDependencyResolver _resolver;
 	HashSet<string> _skipAssemblyLoadList;
 
 	public PluginAssemblyLoadContext(string contextName, string pluginPath) : base(contextName, isCollectible: true)
@@ -22,8 +22,8 @@ public class PluginAssemblyLoadContext<T>: AssemblyLoadContext where T : class
 		this._skipAssemblyLoadList = this.GetReferencedAssemblyFullNames(pluginInterfaceAssembly);
 		this._skipAssemblyLoadList.Add(pluginInterfaceAssembly);
 
-		this._resolver = new AssemblyDependencyResolver(pluginPath);
-		//this._resolver = new PluginAssemblyDependencyResolver(pluginPath);
+		//this._resolver = new AssemblyDependencyResolver(pluginPath);
+		this._resolver = new PluginAssemblyDependencyResolver(pluginPath);
 	}
 	HashSet<string> GetReferencedAssemblyFullNames(string ReferencedBy)
 	{
