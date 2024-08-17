@@ -10,9 +10,9 @@ using MyLife.App.Plugins.Core.Models.Features;
 namespace MyLife.App.Plugins.Core.Services.Features;
 
 
-public interface IFeaturePlugin
+public interface IFeature
 {
-	public FeaturePluginInfo FeatureInfo { get; }
+	public FeatureInfo FeatureInfo { get; }
 
 	public abstract void Initialize();
 	public abstract void Shutdown();

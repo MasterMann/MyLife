@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Profile 1": {
+      "commandName": "DebugRoslynComponent",
+      "targetProject": "..\\..\\Plugins\\MyLife.App.Plugins.Content.Todo\\MyLife.App.Plugins.Content.Todo.csproj"
+    }
+  }
+}

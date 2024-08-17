@@ -20,14 +20,14 @@ public class TabContentDataTemplate : IDataTemplate
 		try
 		{
 			Type? viewType = null;
-			foreach (var plugin in MyLifeApp.PluginManager.LoadedPlugins.Where(x => x.FeatureInfo.FeatureType == FeatureType.FEATURE_CONTENT_TAB))
+			foreach (var feature in MyLifeApp.PluginManager.GetFeaturesForType(FeatureType.FEATURE_CONTENT_TAB))
 			{
-				var tabContentPlugin = (ITabContentFeaturePlugin)plugin;
-				var pluginTabViewModelType = tabContentPlugin.GetTabContentViewModelType();
+				var tabContentFeature = (ITabContentFeature)feature;
+				var pluginTabViewModelType = tabContentFeature.GetTabContentViewModelType();
 				if (pluginTabViewModelType?.FullName?.Equals(viewModelTypeName) ?? false)
 				{
 					// TODO: Cache result as a map<ViewModel, View> of Type type
-					viewType = tabContentPlugin.GetTabContentViewType();
+					viewType = tabContentFeature.GetTabContentViewType();
 					break;
 				}
 			}

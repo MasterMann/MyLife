@@ -16,6 +16,12 @@
     <ProjectReference Include="..\MyLife.App.Plugins.Core\MyLife.App.Plugins.Core.csproj" />
   </ItemGroup>
 
+	<ItemGroup>
+		<ProjectReference Include="..\..\Utilities\MyLife.Utilities.BuildTimeAugmentation\MyLife.Utilities.BuildTimeAugmentation.csproj" 
+						  OutputItemType="Analyzer" 
+						  ReferenceOutputAssembly="false"/>
+	</ItemGroup>
+	
   <ItemGroup>
     <Folder Include="Models\" />
   </ItemGroup>

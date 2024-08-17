@@ -4,67 +4,42 @@
 // ==================================
 
 using System.Reflection;
-using System.Reflection.PortableExecutable;
 
 namespace MyLife.App.Plugins.Core.Utilities.Plugins;
 
 
 public class GenericPluginLoader<T> where T : class
 {
-	//readonly List<PluginAssemblyLoadContext<T>> _loadContexts = new();
-
 	public List<T> LoadAll(string pluginPath, string filter = "*.dll", params object[] constructorArgs)
 	{
 		List<T> plugins = new();
 
 		foreach (var filePath in Directory.EnumerateFiles(pluginPath, filter, SearchOption.AllDirectories))
 		{
-			var loadedPlugins = this.Load(filePath, constructorArgs);
+			var pluginInstance = this.Load(filePath, constructorArgs);
 
-			if (loadedPlugins.Count() > 0)
+			if (pluginInstance != null)
 			{
-				plugins.AddRange(loadedPlugins);
+				plugins.Add(pluginInstance);
 			}
 		}
 
 		return plugins;
 	}
-	public IEnumerable<T> Load(string pluginPath, params object[] constructorArgs)
+	public T? Load(string pluginPath, params object[] constructorArgs)
 	{
-		//var pluginName = Path.GetFileNameWithoutExtension(pluginPath);
-
-		//var loadContext = new PluginAssemblyLoadContext<T>(pluginName, pluginPath);
-		//this._loadContexts.Add(loadContext);
-
-		//var assembly = loadContext.LoadFromAssemblyPath(pluginPath);
-
-		//using var stream = File.OpenRead(pluginPath);
-		//using var reader = new PEReader(stream);
-		//var hasMetadata = reader.HasMetadata;
-		//var arch = reader.PEHeaders.PEHeader?.Magic;
-		//var targetMachine = reader.PEHeaders.CoffHeader.Machine;
-		//var clrHeader = reader.PEHeaders.CorHeader;
-		//var requires32Bit = clrHeader?.Flags.HasFlag(CorFlags.Requires32Bit);
-		//var hasIL = clrHeader?.Flags.HasFlag(CorFlags.ILOnly);
-		//var isIlLibrary = clrHeader?.Flags.HasFlag(CorFlags.ILLibrary);
-
 		var assembly = Assembly.LoadFrom(pluginPath);
 
-		var loadedPlugins = new List<T>();
-
-		var pluginTypes = assembly.GetExportedTypes().Where(type
+		var pluginType = assembly.GetExportedTypes().FirstOrDefault(type
 			=> typeof(T).IsAssignableFrom(type) && !type.IsAbstract
 		);
-		if (pluginTypes.Count() > 0)
+		
+		if (pluginType != null)
 		{
-			foreach (var pluginType in pluginTypes)
-			{
-				var pluginInstance = (T)Activator.CreateInstance(pluginType, constructorArgs)!;
-				loadedPlugins.Add(pluginInstance);
-			}
+			var pluginInstance = (T?)Activator.CreateInstance(pluginType, constructorArgs)!;
+			return pluginInstance;
 		}
-
-		return loadedPlugins;
+		else return null;
 	}
 	public void UnloadAll()
 	{

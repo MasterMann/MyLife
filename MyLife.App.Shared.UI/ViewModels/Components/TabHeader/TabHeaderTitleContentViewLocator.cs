@@ -23,12 +23,12 @@ public class TabHeaderTitleContentViewLocator: IDataTemplate
 		try
 		{
 			Type? viewType = null;
-			foreach (var plugin in MyLifeApp.PluginManager.LoadedPlugins.Where(x => x.FeatureInfo.FeatureType == FeatureType.FEATURE_SERVICE))
+			foreach (var feature in MyLifeApp.PluginManager.GetFeaturesForType(FeatureType.FEATURE_SERVICE))
 			{
-				var service = (IServiceFeaturePlugin)plugin;
-				if (service.ServiceInfo.Capability == DefaultServiceCapabilities.UI_VIEW_LOCATOR)
+				var serviceFeature = (IServiceFeature)feature;
+				if (serviceFeature.ServiceInfo.Capability == DefaultServiceCapabilities.UI_VIEW_LOCATOR)
 				{
-					var viewLocator = (IUIViewLocatorService)service;
+					var viewLocator = (IUIViewLocatorService)serviceFeature;
 					var locatedViewType = viewLocator.FindViewByViewModel(viewModelTypeName);
 					if (locatedViewType != null)
 					{

@@ -9,10 +9,12 @@ namespace MyLife.App.Plugins.Core.Services;
 
 public interface IFeaturePluginManager
 {
-	public IReadOnlyList<IFeaturePlugin> LoadedPlugins { get; }
+	public IReadOnlyDictionary<IFeaturePlugin, IReadOnlyList<IFeature>> LoadedPlugins { get; }
 
 	public void Initialize(IEnumerable<string> pluginFilePaths);
 	public void Shutdown();
 
-	public IFeaturePlugin? GetFeature(FeatureType type, string featureId);
+	public IEnumerable<IFeature> GetPluginFeatures(string pluginId);
+	public IEnumerable<IFeature> GetFeaturesForType(FeatureType type);
+	public IFeature? GetFeature(string pluginId, FeatureType type, string featureId);
 }

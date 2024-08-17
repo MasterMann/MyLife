@@ -7,7 +7,7 @@ using MyLife.App.Plugins.Core.Services.Features;
 namespace MyLife.App.Plugins.Content.Todo.Services.Features;
 
 
-public class TodoContentTabFeature: ITabContentFeaturePlugin
+public class TodoContentTabFeature: ITabContentFeature
 {
 	public TabContentInfo TabInfo => new()
 	{

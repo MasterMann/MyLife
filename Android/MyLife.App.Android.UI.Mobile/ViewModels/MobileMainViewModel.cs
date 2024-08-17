@@ -28,7 +28,7 @@ public partial class MobileMainViewModel : ViewModelBase
 
 	IEnumerable<TabNavigationItemViewModel> GetNavItemsFromFeatures(IFeaturePluginManager featureManager)
 	{
-		static TabNavigationItemViewModel GetNavItemFromFeature(ITabContentFeaturePlugin feature)
+		static TabNavigationItemViewModel GetNavItemFromFeature(ITabContentFeature feature)
 		{
 			var tabInfo = feature.TabInfo;
 
@@ -40,19 +40,16 @@ public partial class MobileMainViewModel : ViewModelBase
 			};
 		}
 
-		foreach (var feature in featureManager.LoadedPlugins)
+		foreach (var feature in featureManager.GetFeaturesForType(FeatureType.FEATURE_CONTENT_TAB))
 		{
-			if (feature.FeatureInfo.FeatureType == FeatureType.FEATURE_CONTENT_TAB)
-			{
-				var tabContentFeature = (ITabContentFeaturePlugin)feature!;
-				yield return GetNavItemFromFeature(tabContentFeature);
-			}
+			var tabContentFeature = (ITabContentFeature)feature;
+			yield return GetNavItemFromFeature(tabContentFeature);
 		}
 	}
 
 	IEnumerable<TabContainerViewModel> GetContentTabsFromFeatures(IFeaturePluginManager featureManager)
 	{
-		static TabContainerViewModel GetContentTabFromFeature(ITabContentFeaturePlugin feature)
+		static TabContainerViewModel GetContentTabFromFeature(ITabContentFeature feature)
 		{
 			var tabInfo = feature.TabInfo;
 			var tabContentVM = (TabContentViewModel?)Activator.CreateInstance(feature.GetTabContentViewModelType());
@@ -70,13 +67,10 @@ public partial class MobileMainViewModel : ViewModelBase
 			};
 		}
 
-		foreach (var feature in featureManager.LoadedPlugins)
+		foreach (var feature in featureManager.GetFeaturesForType(FeatureType.FEATURE_CONTENT_TAB))
 		{
-			if (feature.FeatureInfo.FeatureType == FeatureType.FEATURE_CONTENT_TAB)
-			{
-				var tabContentFeature = (ITabContentFeaturePlugin)feature!;
-				yield return GetContentTabFromFeature(tabContentFeature);
-			}
+			var tabContentFeature = (ITabContentFeature)feature;
+			yield return GetContentTabFromFeature(tabContentFeature);
 		}
 	}
 }

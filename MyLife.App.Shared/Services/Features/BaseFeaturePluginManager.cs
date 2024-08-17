@@ -16,8 +16,8 @@ namespace MyLife.App.Shared.Services.Features;
 
 public class BaseFeaturePluginManager: IFeaturePluginManager
 {
-	public IReadOnlyList<IFeaturePlugin> LoadedPlugins => this._loadedPlugins;
-	List<IFeaturePlugin> _loadedPlugins = new();
+	public IReadOnlyDictionary<IFeaturePlugin, IReadOnlyList<IFeature>> LoadedPlugins => this._loadedPlugins;
+	Dictionary<IFeaturePlugin, IReadOnlyList<IFeature>> _loadedPlugins = new();
 
 	public BaseFeaturePluginManager()
 	{
@@ -50,14 +50,22 @@ public class BaseFeaturePluginManager: IFeaturePluginManager
 	
 		foreach(var pluginFile in pluginFilePaths)
 		{
-			var loadedFeaturePlugins = pluginLoader.Load(pluginFile);
+			var loadedFeaturePlugin = pluginLoader.Load(pluginFile);
+			if (loadedFeaturePlugin == null) continue;
 
-			foreach (var loadedPlugin in loadedFeaturePlugins)
+			var initializedPluginFeatures = new List<IFeature>();
+
+			foreach (var pluginFeatureType in loadedFeaturePlugin.Features)
 			{
-				loadedPlugin.Initialize();
+				var featureInstance = (IFeature?)Activator.CreateInstance(pluginFeatureType);
+				if (featureInstance != null)
+				{
+					featureInstance.Initialize();
+					initializedPluginFeatures.Add(featureInstance);
+				}
 			}
 
-			this._loadedPlugins.AddRange(loadedFeaturePlugins);
+			this._loadedPlugins.Add(loadedFeaturePlugin, initializedPluginFeatures);
 		}
 	}
 	public void Shutdown()
@@ -65,15 +73,21 @@ public class BaseFeaturePluginManager: IFeaturePluginManager
 
 	}
 
-	public IFeaturePlugin? GetFeature(FeatureType type, string featureId)
-	{
-		var fullFeatureId = type switch
+	public IEnumerable<IFeature> GetPluginFeatures(string pluginId)
+		=> this.LoadedPlugins.FirstOrDefault(kv => kv.Key.PluginInfo.PluginId.Equals(pluginId)).Value;
+	public IEnumerable<IFeature> GetFeaturesForType(FeatureType type)
+		=> this.LoadedPlugins.Select(kv => kv.Value)
+			.Aggregate(new List<IFeature>(),
+				(all, next) =>
+				{
+					all.AddRange(next);
+					return all;
+				}
+			).Where(feature => feature.FeatureInfo.FeatureType == type);
+	public IFeature? GetFeature(string pluginId, FeatureType type, string featureId)
+		=> this.GetPluginFeatures(pluginId).FirstOrDefault(feature => feature.FeatureInfo.FeatureName.Equals(type switch
 		{
 			FeatureType.FEATURE_CONTENT_TAB => $"tabcontent_{featureId}",
 			FeatureType.FEATURE_SERVICE => $"service_{featureId}"
-		};
-
-		var plugin = this.LoadedPlugins.FirstOrDefault(x => x.FeatureInfo.FeatureId.Equals(fullFeatureId));
-		return plugin ?? default;
-	}
+		}));
 }
