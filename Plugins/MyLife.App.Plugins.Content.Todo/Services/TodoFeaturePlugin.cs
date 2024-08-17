@@ -1,6 +1,6 @@
 ﻿using MyLife.App.Plugins.Content.Todo.Services.Features;
-using MyLife.App.Plugins.Core.Models;
-using MyLife.App.Plugins.Core.Services;
+using MyLife.App.Shared.Models.Plugins;
+using MyLife.App.Shared.Services.Plugins;
 
 using static MyLife.App.Plugins.Content.Todo.BuildConstants;
 

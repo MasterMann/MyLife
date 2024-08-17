@@ -1,8 +1,11 @@
 <Project>
-  <PropertyGroup>
-    <Nullable>enable</Nullable>
-    <AvaloniaVersion>11.1.0-beta2</AvaloniaVersion>
-	<EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-	<Copyright>(c) 2024 George Bilskiy. All rights reserved.</Copyright>
-  </PropertyGroup>
+	<PropertyGroup>
+		<Nullable>enable</Nullable>
+		<EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+		<Copyright>(c) 2024 George Bilskiy. All rights reserved.</Copyright>
+		<ImplicitUsings>enable</ImplicitUsings>
+
+		<AvaloniaVersion>11.1.0-beta2</AvaloniaVersion>
+		<MVVMToolkitVersion>8.2.2</MVVMToolkitVersion>
+	</PropertyGroup>
 </Project>

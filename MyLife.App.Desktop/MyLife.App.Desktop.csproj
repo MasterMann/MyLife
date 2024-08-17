@@ -23,7 +23,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Android\MyLife.App.Android.UI.Mobile\MyLife.App.Android.UI.Mobile.csproj" />
     <ProjectReference Include="..\MyLife.App.Shared.UI\MyLife.App.Shared.UI.csproj" />
-    <ProjectReference Include="..\MyLife.App.Shared\MyLife.App.Shared.csproj" />
   </ItemGroup>
 
   <ItemGroup>

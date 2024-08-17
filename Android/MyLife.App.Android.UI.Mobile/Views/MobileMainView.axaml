@@ -3,10 +3,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              
-			 xmlns:c-tab-nav="clr-namespace:MyLife.App.Shared.UI.Views.Components.TabNavigation;assembly=MyLife.App.Shared.UI"
-			 xmlns:vm-c-tab-nav="clr-namespace:MyLife.App.Shared.UI.ViewModels.Components.TabNavigation;assembly=MyLife.App.Shared.UI"
+			 xmlns:c-tab-nav="clr-namespace:MyLife.App.Shared.UI.Tabs.Views.Components.TabNavigation;assembly=MyLife.App.Shared.UI.Tabs"
+			 xmlns:vm-c-tab-nav="clr-namespace:MyLife.App.Shared.UI.Tabs.ViewModels.Components.TabNavigation;assembly=MyLife.App.Shared.UI.Tabs"
 
-			 xmlns:vm-tabs="clr-namespace:MyLife.App.Shared.UI.ViewModels.Components.Containers.Tabs;assembly=MyLife.App.Shared.UI"
+			 xmlns:vm-tabs="clr-namespace:MyLife.App.Shared.UI.Tabs.ViewModels.Components.Containers;assembly=MyLife.App.Shared.UI.Tabs"
 			 
 			 xmlns:vm-content-todo="clr-namespace:MyLife.App.Plugins.Content.Todo.ViewModels;assembly=MyLife.App.Plugins.Content.Todo"
 			 

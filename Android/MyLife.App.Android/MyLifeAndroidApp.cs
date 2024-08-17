@@ -1,16 +1,11 @@
 ﻿using Avalonia.Controls;
-
-using Microsoft.Maui.Devices;
-
-using MyLife.App.Shared;
 using MyLife.App.Android.UI.Watch.Views;
 using MyLife.App.Android.UI.Mobile.Views;
 using MyLife.App.Android.UI.Mobile.ViewModels;
 using MyLife.App.Android.UI.Watch.ViewModels;
-using MyLife.App.Shared.Services.Features;
 using Android.Content.Res;
-using System.IO;
-using Microsoft.Maui.Storage;
+using MyLife.App.Shared.UI;
+using MyLife.App.Shared.Services.Plugins;
 
 
 namespace MyLife.App.Android;

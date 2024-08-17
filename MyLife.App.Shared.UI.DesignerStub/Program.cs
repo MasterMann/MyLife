@@ -1,9 +1,6 @@
-﻿using System;
-
-using Avalonia;
+﻿using Avalonia;
 
 using MyLife.App.Desktop;
-using MyLife.App.Shared;
 
 
 namespace MyLife.App.Shared.UI.DesignerStub;

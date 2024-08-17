@@ -6,7 +6,7 @@
              
 			 RequestedThemeVariant="Default"
 			 
-			 x:Class="MyLife.App.Shared.MyLifeApp">
+			 x:Class="MyLife.App.Shared.UI.MyLifeApp">
              <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
 
     <Application.Styles>

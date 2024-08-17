@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyLife.App.Browser", "MyLif
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{B8096191-B67C-4BB1-972A-0CA1D4BA76BD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyLife.App.Plugins.Core", "Plugins\MyLife.App.Plugins.Core\MyLife.App.Plugins.Core.csproj", "{46A8452C-9397-45A6-9C24-B813C0F7C31D}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Android", "Android", "{A5EF56B5-7501-422D-8F66-4366E5E494F7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyLife.App.Android.UI.Mobile", "Android\MyLife.App.Android.UI.Mobile\MyLife.App.Android.UI.Mobile.csproj", "{33FBB8EB-9585-4631-921D-FBA656B15196}"
@@ -30,15 +28,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyLife.App.Shared.UI", "MyLife.App.Shared.UI\MyLife.App.Shared.UI.csproj", "{32F4E207-D419-4E99-A1D4-67DCC46B0AC3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyLife.App.Shared.UI", "MyLife.App.Shared.UI\MyLife.App.Shared.UI.csproj", "{32F4E207-D419-4E99-A1D4-67DCC46B0AC3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyLife.App.Plugins.Content.Todo", "Plugins\MyLife.App.Plugins.Content.Todo\MyLife.App.Plugins.Content.Todo.csproj", "{68B988FF-0087-4F43-B6ED-D44D75950EC2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyLife.App.Plugins.Content.Todo", "Plugins\MyLife.App.Plugins.Content.Todo\MyLife.App.Plugins.Content.Todo.csproj", "{68B988FF-0087-4F43-B6ED-D44D75950EC2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyLife.App.Shared.UI.DesignerStub", "MyLife.App.Shared.UI.DesignerStub\MyLife.App.Shared.UI.DesignerStub.csproj", "{A9C56D3A-2E03-4A17-97EE-EE175D0245FC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utilities", "Utilities", "{6B536171-B5EF-40E8-8EEA-FE6358F0EE0C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyLife.Utilities.BuildTimeAugmentation", "Utilities\MyLife.Utilities.BuildTimeAugmentation\MyLife.Utilities.BuildTimeAugmentation.csproj", "{2B2AA401-468F-4886-B653-4538E8AECC83}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyLife.App.Shared.UI.Tabs", "MyLife.App.Shared.UI.Tabs\MyLife.App.Shared.UI.Tabs.csproj", "{61CCA56A-7155-4303-8D38-63542C554F32}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -54,10 +54,6 @@ Global
 		{5426C0D4-5BD7-4C82-A6F3-D3BE388BCCAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5426C0D4-5BD7-4C82-A6F3-D3BE388BCCAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5426C0D4-5BD7-4C82-A6F3-D3BE388BCCAB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{46A8452C-9397-45A6-9C24-B813C0F7C31D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{46A8452C-9397-45A6-9C24-B813C0F7C31D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{46A8452C-9397-45A6-9C24-B813C0F7C31D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{46A8452C-9397-45A6-9C24-B813C0F7C31D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{33FBB8EB-9585-4631-921D-FBA656B15196}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{33FBB8EB-9585-4631-921D-FBA656B15196}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{33FBB8EB-9585-4631-921D-FBA656B15196}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -92,12 +88,15 @@ Global
 		{2B2AA401-468F-4886-B653-4538E8AECC83}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B2AA401-468F-4886-B653-4538E8AECC83}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B2AA401-468F-4886-B653-4538E8AECC83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61CCA56A-7155-4303-8D38-63542C554F32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61CCA56A-7155-4303-8D38-63542C554F32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61CCA56A-7155-4303-8D38-63542C554F32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61CCA56A-7155-4303-8D38-63542C554F32}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{46A8452C-9397-45A6-9C24-B813C0F7C31D} = {B8096191-B67C-4BB1-972A-0CA1D4BA76BD}
 		{33FBB8EB-9585-4631-921D-FBA656B15196} = {A5EF56B5-7501-422D-8F66-4366E5E494F7}
 		{29D65C55-D438-4CB0-A932-5344176CADBE} = {A5EF56B5-7501-422D-8F66-4366E5E494F7}
 		{087B009A-28C2-4326-B0B3-B015CFB60EE4} = {A5EF56B5-7501-422D-8F66-4366E5E494F7}

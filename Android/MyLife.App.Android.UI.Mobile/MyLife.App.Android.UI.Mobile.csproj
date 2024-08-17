@@ -1,12 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
-
-	<PropertyGroup Label="Avalonia">
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
 		<AvaloniaUseCompiledBindingsByDefault>True</AvaloniaUseCompiledBindingsByDefault>
 	</PropertyGroup>
 
@@ -15,33 +10,31 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\..\MyLife.App.Shared.UI\MyLife.App.Shared.UI.csproj" />
-		<ProjectReference Include="..\..\MyLife.App.Shared\MyLife.App.Shared.csproj" />
-		<ProjectReference Include="..\..\Plugins\MyLife.App.Plugins.Core\MyLife.App.Plugins.Core.csproj" />
+		<Compile Update="Views\Components\TabNavigation\TabNavigationItemView.axaml.cs">
+			<DependentUpon>TabNavigationItemView.axaml</DependentUpon>
+		</Compile>
+		<Compile Update="Views\Components\TabNavigation\TabNavigationView.axaml.cs">
+			<DependentUpon>TabNavigationView.axaml</DependentUpon>
+		</Compile>
+		<Compile Update="Views\Components\Containers\Tabs\TabContainerView.axaml.cs">
+			<DependentUpon>TabContainerView.axaml</DependentUpon>
+		</Compile>
+		<Compile Update="Views\Components\TabHeader\TabHeaderView.axaml.cs">
+			<DependentUpon>TabHeaderView.axaml</DependentUpon>
+		</Compile>
+		<Compile Update="Views\MainView.axaml.cs">
+			<DependentUpon>%(Filename)</DependentUpon>
+		</Compile>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Views\Components\TabNavigation\TabNavigationItemView.axaml.cs">
-	    <DependentUpon>TabNavigationItemView.axaml</DependentUpon>
-	  </Compile>
-	  <Compile Update="Views\Components\TabNavigation\TabNavigationView.axaml.cs">
-	    <DependentUpon>TabNavigationView.axaml</DependentUpon>
-	  </Compile>
-	  <Compile Update="Views\Components\Containers\Tabs\TabContainerView.axaml.cs">
-	    <DependentUpon>TabContainerView.axaml</DependentUpon>
-	  </Compile>
-	  <Compile Update="Views\Components\TabHeader\TabHeaderView.axaml.cs">
-	    <DependentUpon>TabHeaderView.axaml</DependentUpon>
-	  </Compile>
-	  <Compile Update="Views\MainView.axaml.cs">
-	    <DependentUpon>%(Filename)</DependentUpon>
-	  </Compile>
+		<Folder Include="Models\" />
+		<Folder Include="Services\Features\Content\" />
+		<Folder Include="Views\Content\" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Models\" />
-	  <Folder Include="Services\Features\Content\" />
-	  <Folder Include="Views\Content\" />
+		<ProjectReference Include="..\..\MyLife.App.Shared.UI.Tabs\MyLife.App.Shared.UI.Tabs.csproj" />
 	</ItemGroup>
 	
 </Project>

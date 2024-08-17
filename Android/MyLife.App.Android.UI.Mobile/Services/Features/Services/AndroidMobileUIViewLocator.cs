@@ -1,9 +1,8 @@
 ﻿using System.Reflection;
 
 using MyLife.App.Android.UI.Mobile.Views;
-using MyLife.App.Plugins.Core.Models.Features.Services;
-using MyLife.App.Shared.Models.Features.Services;
-using MyLife.App.Shared.Services.Features.UI;
+using MyLife.App.Shared.Models.Plugins.Features.Services;
+using MyLife.App.Shared.Services.Plugins.Features.UI;
 
 
 namespace MyLife.App.Android.UI.Mobile.Services.Features.Services;

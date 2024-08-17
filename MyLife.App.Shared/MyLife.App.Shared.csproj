@@ -1,7 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
-        <Nullable>enable</Nullable>
         <LangVersion>latest</LangVersion>
     </PropertyGroup>
 
@@ -9,7 +8,11 @@
       <Folder Include="Utilities\Converters\" />
     </ItemGroup>
 
-    <ItemGroup>
-      <ProjectReference Include="..\Plugins\MyLife.App.Plugins.Core\MyLife.App.Plugins.Core.csproj" />
-    </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Utilities\MyLife.Utilities.BuildTimeAugmentation\MyLife.Utilities.BuildTimeAugmentation.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="$(MVVMToolkitVersion)" />
+	</ItemGroup>
 </Project>

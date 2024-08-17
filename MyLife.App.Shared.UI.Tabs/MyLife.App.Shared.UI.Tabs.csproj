@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+	    <AvaloniaUseCompiledBindingsByDefault>True</AvaloniaUseCompiledBindingsByDefault>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Folder Include="Models\Components\TabHeader\" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\MyLife.App.Shared.UI\MyLife.App.Shared.UI.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Update="Views\Components\Containers\TabContainerView.axaml.cs">
+            <DependentUpon>%(Filename)</DependentUpon>
+        </Compile>
+        <Compile Update="Views\Components\TabHeader\TabHeaderView.axaml.cs">
+            <DependentUpon>%(Filename)</DependentUpon>
+        </Compile>
+        <Compile Update="Views\Components\TabNavigation\TabNavigationItemView.axaml.cs">
+            <DependentUpon>%(Filename)</DependentUpon>
+        </Compile>
+        <Compile Update="Views\Components\TabNavigation\TabNavigationView.axaml.cs">
+            <DependentUpon>%(Filename)</DependentUpon>
+        </Compile>
+    </ItemGroup>
+
+</Project>

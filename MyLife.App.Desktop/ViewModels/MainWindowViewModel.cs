@@ -1,6 +1,6 @@
 ﻿using MyLife.App.Android.UI.Mobile.ViewModels;
-using MyLife.App.Shared.UI.ViewModels;
-using MyLife.App.Plugins.Core.Services;
+using MyLife.App.Shared.Services.Plugins;
+using MyLife.App.Shared.ViewModels;
 
 
 namespace MyLife.App.Desktop.ViewModels;

@@ -1,5 +1,4 @@
-﻿using System;
-using Avalonia.Controls.Templates;
+﻿using Avalonia.Controls.Templates;
 using Avalonia.Markup.Xaml.Templates;
 
 using MyLife.App.Shared.UI.Models.Components.Buttons;

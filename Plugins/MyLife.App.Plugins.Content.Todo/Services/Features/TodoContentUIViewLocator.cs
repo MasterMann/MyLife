@@ -1,9 +1,8 @@
 ﻿using System.Reflection;
 
 using MyLife.App.Plugins.Content.Todo.Views;
-using MyLife.App.Plugins.Core.Models.Features.Services;
-using MyLife.App.Shared.Models.Features.Services;
-using MyLife.App.Shared.Services.Features.UI;
+using MyLife.App.Shared.Models.Plugins.Features.Services;
+using MyLife.App.Shared.Services.Plugins.Features.UI;
 
 
 namespace MyLife.App.Plugins.Content.Todo.Services.Features;
