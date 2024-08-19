@@ -452,5 +452,7 @@ $RECYCLE.BIN/
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
 *.bak
-/Android/MyLife.App.Android/Assets/plugins/
+
+/App/Android/MyLife.App.Android/Assets/plugins/

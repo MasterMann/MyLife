@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <LangVersion>latest</LangVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Folder Include="Utilities\Converters\" />
+    </ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\Common\MyLife.Common.BuildTimeAugmentation\MyLife.Common.BuildTimeAugmentation.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="$(MVVMToolkitVersion)" />
+	</ItemGroup>
+</Project>
