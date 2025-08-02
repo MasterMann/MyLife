@@ -4,9 +4,7 @@ using MyLife.App.Shared.Services.Plugins;
 
 using static MyLife.App.Plugins.Content.Todo.BuildConstants;
 
-
 namespace MyLife.App.Plugins.Content.Todo.Services;
-
 
 public class TodoFeaturePlugin: IFeaturePlugin
 {

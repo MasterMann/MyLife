@@ -1,13 +1,8 @@
-﻿using System;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 
-using CommunityToolkit.Mvvm.ComponentModel;
-
-using MyLife.App.Shared.UI.ViewModels;
 using MyLife.App.Shared.ViewModels;
 
-
 namespace MyLife.App.Plugins.Content.Todo.ViewModels;
-
 
 public partial class TodoItemViewModel : ViewModelBase
 {
@@ -21,5 +16,5 @@ public partial class TodoItemViewModel : ViewModelBase
 	public bool _isChecked;
 
 	[ObservableProperty]
-	public bool _isEditModeEnabled;
+	public bool _isEditing;
 }

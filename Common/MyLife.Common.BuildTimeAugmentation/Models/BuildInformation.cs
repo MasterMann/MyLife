@@ -1,4 +1,4 @@
-﻿namespace MyLife.Common;
+﻿namespace MyLife.Common.Models;
 
 
 public class BuildInformation

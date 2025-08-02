@@ -72,7 +72,6 @@
 					</vm-c-tab-nav:TabNavigationViewModel.NavItems>
 				</vm-c-tab-nav:TabNavigationViewModel>
 			</vm:MobileMainViewModel.Navigation>
-		
 	</vm:MobileMainViewModel>
     </Design.DataContext>
 

@@ -3,9 +3,7 @@ using MyLife.App.Shared.Utilities;
 using MyLife.App.Shared.Services.Plugins.Features;
 using MyLife.App.Shared.Models.Plugins.Features;
 
-
 namespace MyLife.App.Shared.Services.Plugins;
-
 
 public class BaseFeaturePluginManager: IFeaturePluginManager
 {

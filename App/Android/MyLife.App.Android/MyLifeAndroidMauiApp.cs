@@ -1,6 +1,5 @@
 ﻿namespace MyLife.App.Android;
 
-
-public class MyLifeAndroidMauiApp: Microsoft.Maui.Controls.Application
+public class MyLifeAndroidMauiApp: Application
 {
 }

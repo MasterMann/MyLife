@@ -22,7 +22,7 @@
 	</Design.DataContext>
 
 	<Border
-		Height="40"
+		Height="55"
 		BoxShadow="0 0 5 2 LightGray"
 		CornerRadius="15 15"
 	>
@@ -39,13 +39,13 @@
 			>
 				<md-icons:MaterialIcon
 					Kind="{Binding IconId, DataType={x:Type vm:PillButtonViewModel}}"
-					Width="25"
-					Height="25"
+					Width="30"
+					Height="30"
 				/>
 				<TextBlock
 					Text="{Binding Label, DataType={x:Type vm:PillButtonViewModel}}"
 					FontFamily="Roboto"
-					FontSize="15"
+					FontSize="18"
 					FontWeight="Bold"
 					VerticalAlignment="Center"
 				/>

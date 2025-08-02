@@ -1,28 +1,39 @@
 ﻿using System.Collections.ObjectModel;
-using System.Linq;
 
 using CommunityToolkit.Mvvm.ComponentModel;
-
+using CommunityToolkit.Mvvm.Input;
 
 namespace MyLife.App.Shared.UI.ViewModels.Components.Buttons;
 
-
 public partial class FloatingActionButtonViewModel : ButtonViewModel
 {
+	internal IconButtonViewModel PrimaryDefaultAction => new()
+	{
+		Id = $"{this.Id}-primary",
+		IconId = this.InitialIcon,
+		IsEnabled = this.IsEnabled,
+		Command = this.ShowActionsCommand
+	};
+
+	public IconButtonViewModel PrimaryAction => this.AreActionsVisible
+		? this.Actions[0]
+		: this.PrimaryDefaultAction;
+
 	[ObservableProperty]
 	ObservableCollection<IconButtonViewModel> _actions = new();
 
 	[ObservableProperty]
 	string _initialIcon = string.Empty;
 
-	public void UpdateActionIcon(int targetIndex, string iconID)
-		=> this.Actions = new(this.Actions.Select((item, index) =>
-		{
-			if (index == targetIndex)
-			{
-				item.IconId = iconID;
-			}
+	[ObservableProperty]
+	[NotifyPropertyChangedFor(nameof(this.PrimaryAction))]
+	bool _areActionsVisible = false;
 
-			return item;
-		}));
+	[RelayCommand]
+	public void ShowActions(object? param = null)
+		=> this.AreActionsVisible = true;
+
+	[RelayCommand]
+	public void HideActions(object? param = null)
+		=> this.AreActionsVisible = false;
 }

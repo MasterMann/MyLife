@@ -15,7 +15,7 @@
     
 	<Design.DataContext>
 		<vm:WatchMainViewModel>
-			<vm:WatchMainViewModel.Buttons>
+			<vm:WatchMainViewModel.NavItems>
 				<vm-c-buttons:PillButtonViewModel
 					IconId="FormatListChecks"
 					Id="todo"
@@ -32,7 +32,7 @@
 					IconId="Cog"
 					Id="settings"
 					Label="Settings" />
-			</vm:WatchMainViewModel.Buttons>
+			</vm:WatchMainViewModel.NavItems>
 		</vm:WatchMainViewModel>
     </Design.DataContext>
 
@@ -59,7 +59,7 @@
 					FontSize="12"
 					Padding="0, 0, 0, 10"/>
 				<ItemsControl
-					ItemsSource="{Binding Buttons, DataType={x:Type vm:WatchMainViewModel}}"
+					ItemsSource="{Binding NavItems, DataType={x:Type vm:WatchMainViewModel}}"
 				>
 					<ItemsControl.ItemTemplate>
 						<DataTemplate DataType="{x:Type vm-c-buttons:PillButtonViewModel}">

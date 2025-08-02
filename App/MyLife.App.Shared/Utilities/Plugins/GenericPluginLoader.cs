@@ -3,14 +3,9 @@
 // Original from: https://makolyte.com/csharp-generic-plugin-loader/
 // ==================================
 
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Reflection;
 
 namespace MyLife.App.Plugins.Core.Utilities.Plugins;
-
 
 public class GenericPluginLoader<T> where T : class
 {

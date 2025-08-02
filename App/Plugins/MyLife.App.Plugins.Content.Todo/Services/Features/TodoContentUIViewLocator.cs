@@ -4,9 +4,7 @@ using MyLife.App.Plugins.Content.Todo.Views;
 using MyLife.App.Shared.Models.Plugins.Features.Services;
 using MyLife.App.Shared.Services.Plugins.Features.UI;
 
-
 namespace MyLife.App.Plugins.Content.Todo.Services.Features;
-
 
 public class TodoContentUIViewLocator: IUIViewLocatorService
 {
@@ -27,11 +25,7 @@ public class TodoContentUIViewLocator: IUIViewLocatorService
 		return this._uiViewTypes.FirstOrDefault(t => t.FullName!.Equals(viewTypeName));
 	}
 	public void Initialize()
-	{
-		var test = Assembly.GetExecutingAssembly().GetExportedTypes().Where(x => x.Namespace!.StartsWith(ViewRootNamespace));
-
-		this._uiViewTypes = new List<Type>(test);
-	}
+		=> this._uiViewTypes = (IReadOnlyList<Type>)Assembly.GetExecutingAssembly().GetExportedTypes().Where(x => x.Namespace!.StartsWith(ViewRootNamespace));
 	public void Shutdown()
 	{
 

@@ -16,7 +16,7 @@
 	<Design.DataContext>
 		<vm:TodoItemViewModel 
 			Text="Test TODO item feqiuuiaewgfouauefoaeufgoiufgui"
-			IsEditModeEnabled="False"
+			IsEditing="False"
 			IsChecked="True"
 		/>
 	</Design.DataContext>
@@ -38,7 +38,7 @@
 				<CheckBox
 					
 					IsChecked="{Binding IsChecked, DataType={x:Type vm:TodoItemViewModel}}"
-					IsEnabled="{Binding !IsEditModeEnabled, DataType={x:Type vm:TodoItemViewModel}}"
+					IsEnabled="{Binding !IsEditing, DataType={x:Type vm:TodoItemViewModel}}"
 					CornerRadius="4"
 				/>
 			</LayoutTransformControl>
@@ -51,7 +51,7 @@
 				BorderThickness="0"
 				HorizontalAlignment="Stretch"
 				HorizontalContentAlignment="Left"
-				IsVisible="{Binding !IsEditModeEnabled, DataType={x:Type vm:TodoItemViewModel}}"
+				IsVisible="{Binding !IsEditing, DataType={x:Type vm:TodoItemViewModel}}"
 				Command="{ReflectionBinding $parent[c:TodoTabContentView]((vm:TodoTabContentViewModel)DataContext).SwitchItemToEditCommand}"
 				CommandParameter="{Binding Id, DataType={x:Type vm:TodoItemViewModel}}"
 			>
@@ -67,7 +67,7 @@
 			</Button>
 			<Grid
 				Grid.Column="1"
-				IsVisible="{Binding IsEditModeEnabled, DataType={x:Type vm:TodoItemViewModel}}"
+				IsVisible="{Binding IsEditing, DataType={x:Type vm:TodoItemViewModel}}"
 				ColumnDefinitions="*, Auto, Auto, Auto"
 				Margin="20, 0, 0, 0"
 			>

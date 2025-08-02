@@ -6,9 +6,7 @@ using CommunityToolkit.Mvvm.Input;
 using MyLife.App.Shared.UI.Tabs.ViewModels.Content;
 using MyLife.App.Shared.UI.ViewModels.Components.Buttons;
 
-
 namespace MyLife.App.Plugins.Content.Todo.ViewModels;
-
 
 public partial class TodoTabContentViewModel : TabContentViewModel
 {
@@ -67,7 +65,7 @@ public partial class TodoTabContentViewModel : TabContentViewModel
 	}
 
 	[RelayCommand]
-	public void AddNewItem(object? param)
+	public void AddNewItem(object? param = null)
 	{
 		var itemID = Guid.NewGuid().ToString();
 
@@ -81,7 +79,7 @@ public partial class TodoTabContentViewModel : TabContentViewModel
 
 	// TODO: Show confirmation dialog
 	[RelayCommand]
-	public void ClearItemList(object? param) => this.Items.Clear();
+	public void ClearItemList(object? param = null) => this.Items.Clear();
 
 	[RelayCommand]
 	public void SwitchItemToEdit(string itemID)
@@ -94,7 +92,7 @@ public partial class TodoTabContentViewModel : TabContentViewModel
 			this._itemTextBeforeEditing = foundItem.Text;
 			this._itemInEdit = foundItem.Id;
 
-			foundItem.IsEditModeEnabled = true;
+			foundItem.IsEditing = true;
 		}
 	}
 
@@ -104,7 +102,7 @@ public partial class TodoTabContentViewModel : TabContentViewModel
 		var foundItem = this.Items.FirstOrDefault(item => item.Id == itemID);
 		if (foundItem != null)
 		{
-			foundItem.IsEditModeEnabled = false;
+			foundItem.IsEditing = false;
 
 			this._itemTextBeforeEditing = string.Empty;
 			this._itemInEdit = string.Empty;
@@ -118,7 +116,7 @@ public partial class TodoTabContentViewModel : TabContentViewModel
 		if (foundItem != null)
 		{
 			foundItem.Text = this._itemTextBeforeEditing;
-			foundItem.IsEditModeEnabled = false;
+			foundItem.IsEditing = false;
 
 			this._itemTextBeforeEditing = string.Empty;
 			this._itemInEdit = string.Empty;
@@ -132,7 +130,7 @@ public partial class TodoTabContentViewModel : TabContentViewModel
 		var foundItem = this.Items.FirstOrDefault(item => item.Id == itemID);
 		if (foundItem != null)
 		{
-			this.Items.Remove(foundItem);
+			_ = this.Items.Remove(foundItem);
 		}
 	}
 }

@@ -6,12 +6,9 @@ using Avalonia.Browser;
 
 using MyLife.App.Shared;
 
-
 [assembly: SupportedOSPlatform("browser")]
 
-
 namespace MyLife.App.Browser;
-
 
 internal partial class Program
 {

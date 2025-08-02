@@ -27,11 +27,8 @@ public class AndroidMobileUIViewLocator: IUIViewLocatorService
 		return this._uiViewTypes.FirstOrDefault(t => t.FullName!.Equals(viewTypeName));
 	}
 	public void Initialize()
-	{
-		var test = Assembly.GetExecutingAssembly().GetExportedTypes().Where(x => x.Namespace!.StartsWith(ViewRootNamespace));
-
-		this._uiViewTypes = new List<Type>(test);
-	}
+		=> this._uiViewTypes = (IReadOnlyList<Type>)Assembly.GetExecutingAssembly().GetExportedTypes()
+			.Where(x => x.Namespace!.StartsWith(ViewRootNamespace));
 	public void Shutdown()
 	{
 		

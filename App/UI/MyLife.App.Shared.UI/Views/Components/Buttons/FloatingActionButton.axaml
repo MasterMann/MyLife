@@ -19,6 +19,7 @@
 		<vm:FloatingActionButtonViewModel 
 			Id="fab-test"
 			InitialIcon="Pencil"
+			AreActionsVisible="False"
 		>
 			<vm:FloatingActionButtonViewModel.Actions>
 				<vm:IconButtonViewModel
@@ -51,7 +52,7 @@
 	>
 		<ItemsControl
 			Name="extraActionsList"
-			IsVisible="False"
+			IsVisible="{ReflectionBinding AreActionsVisible}"
 			HorizontalAlignment="Right"
 			Padding="0, 0, 5, 5"
 			ItemsSource="{ReflectionBinding Actions, Converter={StaticResource excludeFirstListElementConverter}}"
@@ -107,7 +108,7 @@
 		>
 			<Border 
 				Name="mainActionButtonTooltip"
-				IsVisible="False"
+				IsVisible="{ReflectionBinding AreActionsVisible}"
 			>
 				<Border
 					IsHitTestVisible="False"
@@ -133,7 +134,7 @@
 
 			<c-buttons:IconButton
 				Name="mainActionButton"
-				DataContext="{ReflectionBinding Actions[0]}"
+				DataContext="{ReflectionBinding PrimaryAction}"
 				Width="75"
 				Height="75"
 			/>

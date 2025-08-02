@@ -3,9 +3,7 @@ using MyLife.App.Plugins.Content.Todo.Views;
 using MyLife.App.Shared.Models.Plugins.Features.TabContent;
 using MyLife.App.Shared.Services.Plugins.Features;
 
-
 namespace MyLife.App.Plugins.Content.Todo.Services.Features;
-
 
 public class TodoContentTabFeature: ITabContentFeature
 {

@@ -1,9 +1,7 @@
 ﻿using MyLife.App.Shared.Models.Plugins.Features;
 using MyLife.App.Shared.Models.Plugins.Features.TabContent;
 
-
 namespace MyLife.App.Shared.Services.Plugins.Features;
-
 
 public interface ITabContentFeature: IFeature
 {
