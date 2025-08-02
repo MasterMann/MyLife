@@ -5,9 +5,7 @@ using Avalonia.Layout;
 using MyLife.App.Shared.Models.Plugins.Features;
 using MyLife.App.Shared.Services.Plugins.Features;
 
-
 namespace MyLife.App.Shared.UI.Tabs.ViewModels.Content;
-
 
 public class TabContentDataTemplate: IDataTemplate
 {

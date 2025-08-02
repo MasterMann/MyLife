@@ -1,12 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net8.0</TargetFramework>
+		<TargetFramework>net9.0</TargetFramework>
 		<AvaloniaUseCompiledBindingsByDefault>True</AvaloniaUseCompiledBindingsByDefault>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\..\Common\MyLife.Common.BuildTimeAugmentation\MyLife.Common.BuildTimeAugmentation.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+		<ProjectReference Include="..\..\UI\MyLife.App.Shared.UI.Tabs\MyLife.App.Shared.UI.Tabs.csproj" />
 	</ItemGroup>
 	
 	<ItemGroup>
