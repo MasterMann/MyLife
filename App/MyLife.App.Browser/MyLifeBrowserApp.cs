@@ -5,9 +5,7 @@ using MyLife.App.Android.UI.Mobile.Views;
 using MyLife.App.Shared.Services.Plugins;
 using MyLife.App.Shared.UI;
 
-
 namespace MyLife.App.Browser;
-
 
 internal class MyLifeBrowserApp: MyLifeApp
 {
@@ -19,6 +17,8 @@ internal class MyLifeBrowserApp: MyLifeApp
 	protected override void InitPlatform()
 	{
 		base.InitPlatform();
+
+
 
 		PluginManager = new BaseFeaturePluginManager();
 	}

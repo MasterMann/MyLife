@@ -7,9 +7,7 @@ using Android.Content.Res;
 using MyLife.App.Shared.UI;
 using MyLife.App.Shared.Services.Plugins;
 
-
 namespace MyLife.App.Android;
-
 
 public class MyLifeAndroidApp: MyLifeApp
 {
@@ -36,16 +34,16 @@ public class MyLifeAndroidApp: MyLifeApp
 			{
 				Directory.CreateDirectory(pluginDirStoragePath);
 
-				foreach (var pluginFile in AssetManager.List(pluginDirPath) ?? [])
+				foreach (var pluginAsset in AssetManager.List(pluginDirPath) ?? [])
 				{
-					var pluginFilePath = Path.Combine(pluginDirPath, pluginFile);
-					var pluginFileStoragePath = Path.Combine(pluginDirStoragePath, pluginFile);
+					var pluginAssetPath = Path.Combine(pluginDirPath, pluginAsset);
+					var pluginAssetStoragePath = Path.Combine(pluginDirStoragePath, pluginAsset);
 
-					if (!File.Exists(pluginFileStoragePath))
+					if (!File.Exists(pluginAssetStoragePath))
 					{
-						var file = AssetManager.Open(pluginFilePath);
+						var file = AssetManager.Open(pluginAssetPath);
 
-						using var storageStream = File.OpenWrite(pluginFileStoragePath);
+						using var storageStream = File.OpenWrite(pluginAssetStoragePath);
 						file.CopyTo(storageStream);
 						storageStream.Flush();
 						storageStream.Close();
@@ -62,16 +60,7 @@ public class MyLifeAndroidApp: MyLifeApp
 
 	protected Control GetInitialWatchView() => new WatchMainView
 	{
-		DataContext = new WatchMainViewModel()
-		{
-			Buttons =
-			{
-				new() { IconId = "FormatListChecks", Id = "todo", Label = "TODO" },
-				new() { IconId = "Note", Id = "notes", Label = "Notes" },
-				new() { IconId = "ViewGridPlus", Id = "services", Label = "Services" },
-				new() { IconId = "Cog", Id = "settings", Label = "Settings" },
-			}
-		}
+		DataContext = new WatchMainViewModel(PluginManager);
 	};
 	protected Control GetInitialMobileView() => new MobileMainView
 	{
