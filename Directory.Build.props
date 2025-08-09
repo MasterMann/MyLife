@@ -10,8 +10,8 @@
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
 		<EnableAvaloniaXamlCompilation>True</EnableAvaloniaXamlCompilation>
-		<AvaloniaXamlIlDebuggerLaunch>True</AvaloniaXamlIlDebuggerLaunch>
-		<AvaloniaXamlVerboseExceptions>True</AvaloniaXamlVerboseExceptions>
+		<AvaloniaXamlVerboseExceptions>False</AvaloniaXamlVerboseExceptions>
+		<AvaloniaXamlIlDebuggerLaunch>False</AvaloniaXamlIlDebuggerLaunch>
 	</PropertyGroup>
 
 	<PropertyGroup>
