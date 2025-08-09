@@ -1,6 +1,5 @@
 ﻿namespace MyLife.App.Shared.Utilities;
 
-
 // TODO: Move to separate shared library
 public static class StringUtilities
 {
