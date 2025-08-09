@@ -455,4 +455,6 @@ $RECYCLE.BIN/
 
 *.bak
 
-/App/Android/MyLife.App.Android/Assets/plugins/
+src/App/Android/MyLife.App.Android/Assets/plugins/
+*.bkp
+*.dtmp

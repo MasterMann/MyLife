@@ -1,6 +1,5 @@
 ﻿namespace MyLife.Common.Models;
 
-
 public class BuildInformation
 {
 	/// <summary>

@@ -4,9 +4,7 @@ using Avalonia.Layout;
 
 using MyLife.App.Shared.ViewModels;
 
-
 namespace MyLife.App.Shared.UI.ViewModels;
-
 
 public class ViewLocator: IDataTemplate
 {
