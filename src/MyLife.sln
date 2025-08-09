@@ -46,6 +46,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyLife.App.Desktop", "App\M
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyLife.App.Browser", "App\MyLife.App.Browser\MyLife.App.Browser.csproj", "{2A3EF978-1223-4844-901C-A73C9BA53BCE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyLife.Common", "Common\MyLife.Common\MyLife.Common.csproj", "{88913991-298D-4603-9DDD-479E305EF5F4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -98,6 +100,10 @@ Global
 		{2A3EF978-1223-4844-901C-A73C9BA53BCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A3EF978-1223-4844-901C-A73C9BA53BCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A3EF978-1223-4844-901C-A73C9BA53BCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88913991-298D-4603-9DDD-479E305EF5F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88913991-298D-4603-9DDD-479E305EF5F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88913991-298D-4603-9DDD-479E305EF5F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88913991-298D-4603-9DDD-479E305EF5F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -117,6 +123,7 @@ Global
 		{93D53757-5C01-4C74-AD4F-B6E1AE70ABBA} = {62D4CDEB-8CE9-4B02-A9E5-481E17707DEA}
 		{5F0C7A3D-2EF6-451F-AB48-5CAB490A1930} = {71319DFB-7F12-4BEF-8504-8238DB5A29AA}
 		{2A3EF978-1223-4844-901C-A73C9BA53BCE} = {71319DFB-7F12-4BEF-8504-8238DB5A29AA}
+		{88913991-298D-4603-9DDD-479E305EF5F4} = {6B536171-B5EF-40E8-8EEA-FE6358F0EE0C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9D19063E-0EEE-48FF-A1BE-503788DDE6B0}

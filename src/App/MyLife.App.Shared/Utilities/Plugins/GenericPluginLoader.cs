@@ -5,7 +5,7 @@
 
 using System.Reflection;
 
-namespace MyLife.App.Plugins.Core.Utilities.Plugins;
+namespace MyLife.App.Shared.Utilities.Plugins;
 
 public class GenericPluginLoader<T> where T : class
 {
@@ -18,9 +18,7 @@ public class GenericPluginLoader<T> where T : class
 			var pluginInstance = this.Load(filePath, constructorArgs);
 
 			if (pluginInstance != null)
-			{
 				plugins.Add(pluginInstance);
-			}
 		}
 
 		return plugins;

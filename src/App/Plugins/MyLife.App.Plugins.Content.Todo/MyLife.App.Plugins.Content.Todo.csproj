@@ -2,11 +2,11 @@
 
 	<PropertyGroup>
 		<TargetFramework>net9.0</TargetFramework>
-		<AvaloniaUseCompiledBindingsByDefault>True</AvaloniaUseCompiledBindingsByDefault>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\..\Common\MyLife.Common.BuildTimeAugmentation\MyLife.Common.BuildTimeAugmentation.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+		<ProjectReference Include="..\..\..\Common\MyLife.Common\MyLife.Common.csproj" />
 		<ProjectReference Include="..\..\UI\MyLife.App.Shared.UI.Tabs\MyLife.App.Shared.UI.Tabs.csproj" />
 	</ItemGroup>
 	

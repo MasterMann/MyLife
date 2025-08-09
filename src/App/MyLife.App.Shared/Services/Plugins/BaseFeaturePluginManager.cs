@@ -1,7 +1,7 @@
-﻿using MyLife.App.Plugins.Core.Utilities.Plugins;
-using MyLife.App.Shared.Utilities;
+﻿using MyLife.App.Shared.Utilities;
 using MyLife.App.Shared.Services.Plugins.Features;
 using MyLife.App.Shared.Models.Plugins.Features;
+using MyLife.App.Shared.Utilities.Plugins;
 
 namespace MyLife.App.Shared.Services.Plugins;
 

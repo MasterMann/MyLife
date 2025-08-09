@@ -9,6 +9,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\Common\MyLife.Common.BuildTimeAugmentation\MyLife.Common.BuildTimeAugmentation.csproj" />
+		<ProjectReference Include="..\..\Common\MyLife.Common\MyLife.Common.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
