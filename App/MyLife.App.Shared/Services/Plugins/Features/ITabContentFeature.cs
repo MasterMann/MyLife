@@ -5,11 +5,13 @@ namespace MyLife.App.Shared.Services.Plugins.Features;
 
 public interface ITabContentFeature: IFeature
 {
+	string IFeature.FEATURE_ID_PREFIX => "tab-content_";
+
 	public TabContentInfo TabInfo { get; }
 
 	FeatureInfo IFeature.FeatureInfo => new()
 	{
-		FeatureId = $"tabcontent_{this.TabInfo.TabId}",
+		FeatureID = $"{this.FEATURE_ID_PREFIX}{this.TabInfo.TabId}",
 		FeatureType = FeatureType.FEATURE_CONTENT_TAB,
 		FeatureName = $"Tab Content Feature - {this.TabInfo.TabName}"
 	};

@@ -7,8 +7,10 @@ namespace MyLife.App.Shared.Services.Plugins;
 
 public class BaseFeaturePluginManager: IFeaturePluginManager
 {
+	const string PLUGINS_ROOT_DIR_PATH = "plugins";
+
 	public IReadOnlyDictionary<IFeaturePlugin, IReadOnlyList<IFeature>> LoadedPlugins => this._loadedPlugins;
-	Dictionary<IFeaturePlugin, IReadOnlyList<IFeature>> _loadedPlugins = new();
+	readonly Dictionary<IFeaturePlugin, IReadOnlyList<IFeature>> _loadedPlugins = new();
 
 	public BaseFeaturePluginManager()
 	{
@@ -16,7 +18,7 @@ public class BaseFeaturePluginManager: IFeaturePluginManager
 		if (rootExecPath == null)
 			throw new Exception("Invalid root executable path.");
 
-		var pluginsRootPath = Path.Combine(rootExecPath, "plugins");
+		var pluginsRootPath = Path.Combine(rootExecPath, PLUGINS_ROOT_DIR_PATH);
 		if (!Directory.Exists(pluginsRootPath))
 			return;
 
@@ -37,11 +39,11 @@ public class BaseFeaturePluginManager: IFeaturePluginManager
 		this.Initialize(pluginFiles);
 	}
 
-	public void Initialize(IEnumerable<string> pluginFilePaths)
+	public void Initialize(IEnumerable<string> pluginFiles)
 	{
 		var pluginLoader = new GenericPluginLoader<IFeaturePlugin>();
 
-		foreach (var pluginFile in pluginFilePaths)
+		foreach (var pluginFile in pluginFiles)
 		{
 			var loadedFeaturePlugin = pluginLoader.Load(pluginFile);
 			if (loadedFeaturePlugin == null)
@@ -68,7 +70,8 @@ public class BaseFeaturePluginManager: IFeaturePluginManager
 	}
 
 	public IEnumerable<IFeature> GetPluginFeatures(string pluginId)
-		=> this.LoadedPlugins.FirstOrDefault(kv => kv.Key.PluginInfo.PluginId.Equals(pluginId)).Value;
+		=> this.LoadedPlugins.FirstOrDefault(kv 
+			=> kv.Key.PluginInfo.PluginID.Equals(pluginId)).Value;
 	public IEnumerable<IFeature> GetFeaturesForType(FeatureType type)
 		=> this.LoadedPlugins.Select(kv => kv.Value)
 			.Aggregate(new List<IFeature>(),
@@ -79,9 +82,7 @@ public class BaseFeaturePluginManager: IFeaturePluginManager
 				}
 			).Where(feature => feature.FeatureInfo.FeatureType == type);
 	public IFeature? GetFeature(string pluginId, FeatureType type, string featureId)
-		=> this.GetPluginFeatures(pluginId).FirstOrDefault(feature => feature.FeatureInfo.FeatureName.Equals(type switch
-		{
-			FeatureType.FEATURE_CONTENT_TAB => $"tabcontent_{featureId}",
-			FeatureType.FEATURE_SERVICE => $"service_{featureId}"
-		}));
+		=> this.GetPluginFeatures(pluginId).FirstOrDefault(feature 
+			=> feature.FeatureInfo.FeatureName.Equals($"{feature.FEATURE_ID_PREFIX}{featureId}")
+		);
 }
