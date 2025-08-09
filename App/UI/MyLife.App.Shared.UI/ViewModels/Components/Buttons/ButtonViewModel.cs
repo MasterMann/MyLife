@@ -3,12 +3,12 @@ using CommunityToolkit.Mvvm.Input;
 
 using MyLife.App.Shared.ViewModels;
 
-
 namespace MyLife.App.Shared.UI.ViewModels.Components.Buttons;
-
 
 public partial class ButtonViewModel : ViewModelBase
 {
+	public event EventHandler? Clicked;
+
 	[ObservableProperty]
 	string _id = string.Empty;
 
@@ -27,6 +27,12 @@ public partial class ButtonViewModel : ViewModelBase
 	[ObservableProperty]
 	object? _commandParameter;
 
-	public void Execute() => this.Command?.Execute(this.CommandParameter);
+	public void Execute()
+	{
+		this.Clicked?.Invoke(this, EventArgs.Empty);
+
+		this.Command?.Execute(this.CommandParameter);
+	}
+
 	public bool CanExecute() => this.IsEnabled;
 }

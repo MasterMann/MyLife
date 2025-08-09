@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MyLife.App.Shared.Models.Plugins.Features;
-
+﻿namespace MyLife.App.Shared.Models.Plugins.Features;
 
 public record FeatureInfo
 {
-	public string FeatureId { get; init; } = string.Empty;
-	public string FeatureName { get; init; } = string.Empty;
-	public FeatureType FeatureType { get; init; }
+	public required string FeatureID { get; init; }
+	public required string FeatureName { get; init; }
+	public required FeatureType FeatureType { get; init; }
 	public bool IsEnabled { get; init; } = true;
 }

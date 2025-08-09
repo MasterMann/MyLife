@@ -16,7 +16,7 @@ public class AndroidMobileUIViewLocator: IUIViewLocatorService
 
 	public ServiceInfo ServiceInfo => new()
 	{
-		ServiceId = nameof(AndroidMobileUIViewLocator),
+		ServiceID = nameof(AndroidMobileUIViewLocator),
 		Capability = DefaultServiceCapabilities.UI_VIEW_LOCATOR
 	};
 

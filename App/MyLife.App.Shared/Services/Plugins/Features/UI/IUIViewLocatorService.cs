@@ -1,10 +1,4 @@
-﻿using System;
-
-using MyLife.App.Shared.Services.Plugins.Features;
-
-
-namespace MyLife.App.Shared.Services.Plugins.Features.UI;
-
+﻿namespace MyLife.App.Shared.Services.Plugins.Features.UI;
 
 public interface IUIViewLocatorService: IServiceFeature
 {

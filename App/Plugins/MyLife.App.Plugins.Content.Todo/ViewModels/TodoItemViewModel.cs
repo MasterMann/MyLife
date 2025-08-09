@@ -7,14 +7,14 @@ namespace MyLife.App.Plugins.Content.Todo.ViewModels;
 public partial class TodoItemViewModel : ViewModelBase
 {
 	[ObservableProperty]
-	public string _id = Guid.NewGuid().ToString();
+	string _id = Guid.NewGuid().ToString();
 
 	[ObservableProperty]
-	public string _text = string.Empty;
+	string _text = string.Empty;
 
 	[ObservableProperty]
-	public bool _isChecked;
+	bool _isChecked;
 
 	[ObservableProperty]
-	public bool _isEditing;
+	bool _isEditing;
 }

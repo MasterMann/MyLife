@@ -27,7 +27,9 @@ public class GenericPluginLoader<T> where T : class
 	}
 	public T? Load(string pluginPath, params object[] constructorArgs)
 	{
+#pragma warning disable S3885 // "Assembly.Load" should be used
 		var assembly = Assembly.LoadFrom(pluginPath);
+#pragma warning restore S3885 // "Assembly.Load" should be used
 
 		var pluginType = assembly.GetExportedTypes().FirstOrDefault(type
 			=> typeof(T).IsAssignableFrom(type) && !type.IsAbstract

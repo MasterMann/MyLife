@@ -11,7 +11,7 @@ public class TodoFeaturePlugin: IFeaturePlugin
 	FeaturePluginInfo IFeaturePlugin.PluginInfo => new(BuildInfo)
 	{
 		Author = "MasterMan",
-		PluginId = "todo",
+		PluginID = "todo",
 		PluginName = "TODO"
 	};
 

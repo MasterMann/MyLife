@@ -1,8 +1,6 @@
 ﻿using MyLife.App.Shared.Models.Plugins;
 
-
 namespace MyLife.App.Shared.Services.Plugins;
-
 
 public interface IFeaturePlugin
 {

@@ -14,7 +14,7 @@ public class TodoContentUIViewLocator: IUIViewLocatorService
 
 	public ServiceInfo ServiceInfo => new()
 	{
-		ServiceId = nameof(TodoContentUIViewLocator),
+		ServiceID = nameof(TodoContentUIViewLocator),
 		Capability = DefaultServiceCapabilities.UI_VIEW_LOCATOR
 	};
 
